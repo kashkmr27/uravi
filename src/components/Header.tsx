@@ -15,7 +15,7 @@ const Header = () => {
   ];
 
   const isHashLink = (href: string) => href.includes('#');
-  
+
   const NavLink = ({ href, children, className, onClick }: { href: string; children: React.ReactNode; className?: string; onClick?: () => void }) => {
     if (isHashLink(href)) {
       return (
@@ -36,8 +36,8 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg hero-gradient flex items-center justify-center">
-            <span className="text-primary-foreground font-display font-bold text-lg">U</span>
+          <div className="w-8 h-8 flex items-center justify-center">
+            <img src="/logo.png" alt="Logo" className="w-8 h-8" />
           </div>
           <span className="font-display font-semibold text-lg text-foreground">Uravi Sharma</span>
         </Link>

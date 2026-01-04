@@ -43,7 +43,7 @@ const ExperienceSection = () => {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-card/30">
+    <section className="py-6 md:py-8 bg-card/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -60,11 +60,10 @@ const ExperienceSection = () => {
             <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-accent via-primary to-transparent md:transform md:-translate-x-1/2" />
 
             {experiences.map((exp, index) => (
-              <div 
+              <div
                 key={index}
-                className={`relative flex flex-col md:flex-row gap-8 mb-12 ${
-                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                }`}
+                className={`relative flex flex-col md:flex-row gap-8 mb-12 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                  }`}
               >
                 {/* Timeline dot */}
                 <div className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-background border-4 border-accent transform -translate-x-1/2 md:-translate-x-1/2 z-10 pulse-glow" />
@@ -73,9 +72,8 @@ const ExperienceSection = () => {
                 <div className={`flex-1 ml-8 md:ml-0 ${index % 2 === 0 ? 'md:pr-16 md:text-right' : 'md:pl-16'}`}>
                   <div className="bento-card glow-effect p-6 md:p-8">
                     <div className={`flex items-center gap-3 mb-4 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                        exp.isCurrent ? 'bg-accent/20' : 'bg-primary/20'
-                      }`}>
+                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${exp.isCurrent ? 'bg-accent/20' : 'bg-primary/20'
+                        }`}>
                         <Briefcase size={20} className={exp.isCurrent ? 'text-accent' : 'text-primary'} />
                       </div>
                       {exp.isCurrent && (
@@ -88,9 +86,8 @@ const ExperienceSection = () => {
                     <h3 className="font-display text-xl font-bold text-foreground mb-1">{exp.role}</h3>
                     <p className="text-accent font-medium mb-3">{exp.company}</p>
 
-                    <div className={`flex flex-wrap gap-4 mb-4 text-muted-foreground text-sm ${
-                      index % 2 === 0 ? 'md:justify-end' : ''
-                    }`}>
+                    <div className={`flex flex-wrap gap-4 mb-4 text-muted-foreground text-sm ${index % 2 === 0 ? 'md:justify-end' : ''
+                      }`}>
                       <span className="flex items-center gap-1">
                         <MapPin size={14} />
                         {exp.location}

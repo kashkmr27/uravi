@@ -62,7 +62,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-card/30">
+    <section id="contact" className="py-6 md:py-8 bg-card/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -74,11 +74,11 @@ const ContactSection = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          
+
           {/* Contact Form */}
           <div className="bento-card glow-effect p-8 md:p-10">
             <h3 className="font-display text-xl font-bold text-foreground mb-6">Send a Message</h3>
-            
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
@@ -152,7 +152,7 @@ const ContactSection = () => {
           <div className="flex flex-col gap-6">
             {/* Info Cards */}
             {contactInfo.map((info) => (
-              <div 
+              <div
                 key={info.label}
                 className="bento-card glow-effect p-6 flex items-center gap-4 group"
               >
@@ -162,7 +162,7 @@ const ContactSection = () => {
                 <div>
                   <span className="text-muted-foreground text-sm">{info.label}</span>
                   {info.href ? (
-                    <a 
+                    <a
                       href={info.href}
                       target={info.href.startsWith('http') ? '_blank' : undefined}
                       rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}

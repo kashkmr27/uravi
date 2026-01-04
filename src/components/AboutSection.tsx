@@ -13,10 +13,10 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-20 md:py-32">
+    <section id="about" className="py-6 md:py-8">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          
+
           {/* Left Column - Bio */}
           <div className="bento-card glow-effect p-8 md:p-10">
             <div className="flex items-center gap-3 mb-6">
@@ -25,11 +25,11 @@ const AboutSection = () => {
               </div>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">About Me</h2>
             </div>
-            
+
             <p className="text-muted-foreground leading-relaxed mb-6">
               I'm a seasoned <span className="text-foreground font-medium">UI/UX & Digital Designer</span> with over 7 years of experience crafting user-centered digital experiences. My design philosophy centers on blending creativity with usability to create interfaces that not only look beautiful but also solve real problems.
             </p>
-            
+
             <p className="text-muted-foreground leading-relaxed mb-6">
               Specializing in UX research, design systems, and now leveraging <span className="text-accent font-medium">generative AI tools</span>, I bring a unique perspective to every project. From wireframes to high-fidelity prototypes, I ensure every pixel serves a purpose.
             </p>
@@ -41,7 +41,7 @@ const AboutSection = () => {
 
           {/* Right Column - Certifications & Education */}
           <div className="flex flex-col gap-6">
-            
+
             {/* Certifications */}
             <div className="bento-card glow-effect p-8">
               <div className="flex items-center gap-3 mb-6">
@@ -50,10 +50,10 @@ const AboutSection = () => {
                 </div>
                 <h3 className="font-display text-xl font-bold text-foreground">Certifications</h3>
               </div>
-              
+
               <div className="space-y-3">
                 {certifications.map((cert, index) => (
-                  <div 
+                  <div
                     key={index}
                     className="flex items-center gap-3 p-3 rounded-xl bg-secondary/30 border border-border/50"
                   >
@@ -72,10 +72,10 @@ const AboutSection = () => {
                 </div>
                 <h3 className="font-display text-xl font-bold text-foreground">Education</h3>
               </div>
-              
+
               <div className="space-y-3">
                 {education.map((edu, index) => (
-                  <div 
+                  <div
                     key={index}
                     className="flex items-center gap-3 p-3 rounded-xl bg-secondary/30 border border-border/50"
                   >

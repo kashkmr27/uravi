@@ -71,7 +71,7 @@ const PortfolioSection = () => {
   }, [emblaApi, onSelect]);
 
   return (
-    <section id="work" className="py-20 md:py-32">
+    <section id="work" className="py-6 md:py-8">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -170,11 +170,10 @@ const PortfolioSection = () => {
               <button
                 key={index}
                 onClick={() => scrollTo(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${
-                  index === selectedIndex
+                className={`w-2.5 h-2.5 rounded-full transition-all ${index === selectedIndex
                     ? 'bg-accent w-8'
                     : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
-                }`}
+                  }`}
                 aria-label={`Go to project ${index + 1}`}
               />
             ))}

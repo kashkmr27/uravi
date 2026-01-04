@@ -3,8 +3,8 @@ import profileAvatar from '@/assets/profile-avatar.png';
 const HeroSection = () => {
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = `${import.meta.env.BASE_URL}CV_Uravi_Sharma.pdf`;
-    link.download = 'Uravi_Sharma_CV.pdf';
+    link.href = `${import.meta.env.BASE_URL}Uravi_Sharma_CV_.pdf`;
+    link.download = 'Uravi_Sharma_CV_.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -19,8 +19,8 @@ const HeroSection = () => {
           animationDelay: '0.1s'
         }}>
           <div>
-            <div className="w-12 h-12 rounded-xl hero-gradient flex items-center justify-center mb-6">
-              <span className="text-foreground font-display font-bold text-xl">U</span>
+            <div className="w-12 h-12 flex items-center justify-center mb-6">
+              <img src="/logo.png" alt="Logo" className="w-12 h-12" />
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               "I'm Uravi, a digital designer blending creativity and usability to craft designs people love — just ask my <span className="text-accent font-medium">mom</span> and <span className="text-accent font-medium">son</span>!"
@@ -49,7 +49,7 @@ const HeroSection = () => {
 
           {/* Profile Avatar with rotating badge */}
           <div className="relative mt-4 z-10">
-            <div className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-background/20 border-4 border-background/30 overflow-hidden float-animation">
+            <div className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-background/20 border-4 border-background/30 overflow-hidden">
               <img src={profileAvatar} alt="Uravi Sharma - UI/UX Designer" className="w-full h-full object-cover" />
             </div>
             {/* Rotating text badge */}
@@ -88,8 +88,9 @@ const HeroSection = () => {
           animationDelay: '0.4s'
         }}>
           <div className="flex flex-wrap gap-3 justify-center">
-            <a href="https://www.linkedin.com/in/uravisharma/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-border hover:border-primary flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-300" aria-label="LinkedIn">
-              <Linkedin size={20} />
+            <a href="https://www.linkedin.com/in/uravisharma/" target="_blank" rel="noopener noreferrer" className=" hover:border-primary flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-300" aria-label="LinkedIn">
+              {/* <Linkedin size={100} /> */}
+              <img src="/LinkedIn_logo.svg" alt="LinkedIn" className="w-36" />
             </a>
 
           </div>

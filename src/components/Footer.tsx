@@ -18,11 +18,11 @@ const Footer = () => {
     <footer className="py-12 border-t border-border">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          
+
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg hero-gradient flex items-center justify-center">
-              <span className="text-foreground font-display font-bold text-lg">U</span>
+            <div className="w-8 h-8 flex items-center justify-center">
+              <img src="/logo.png" alt="Logo" className="w-8 h-8" />
             </div>
             <span className="font-display font-semibold text-lg text-foreground">Uravi Sharma</span>
           </Link>
