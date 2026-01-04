@@ -69,9 +69,9 @@ const ExperienceSection = () => {
                 <div className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-background border-4 border-accent transform -translate-x-1/2 md:-translate-x-1/2 z-10 pulse-glow" />
 
                 {/* Content */}
-                <div className={`flex-1 ml-8 md:ml-0 ${index % 2 === 0 ? 'md:pr-16 md:text-right' : 'md:pl-16'}`}>
+                <div className={`flex-1 ml-8 md:ml-0 ${index % 2 === 0 ? 'md:pr-16' : 'md:pl-16'}`}>
                   <div className="bento-card glow-effect p-6 md:p-8">
-                    <div className={`flex items-center gap-3 mb-4 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                    <div className="flex items-center gap-3 mb-4">
                       <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${exp.isCurrent ? 'bg-accent/20' : 'bg-primary/20'
                         }`}>
                         <Briefcase size={20} className={exp.isCurrent ? 'text-accent' : 'text-primary'} />
@@ -86,8 +86,7 @@ const ExperienceSection = () => {
                     <h3 className="font-display text-xl font-bold text-foreground mb-1">{exp.role}</h3>
                     <p className="text-accent font-medium mb-3">{exp.company}</p>
 
-                    <div className={`flex flex-wrap gap-4 mb-4 text-muted-foreground text-sm ${index % 2 === 0 ? 'md:justify-end' : ''
-                      }`}>
+                    <div className="flex flex-wrap gap-4 mb-4 text-muted-foreground text-sm">
                       <span className="flex items-center gap-1">
                         <MapPin size={14} />
                         {exp.location}
@@ -98,9 +97,9 @@ const ExperienceSection = () => {
                       </span>
                     </div>
 
-                    <ul className={`space-y-2 pl-6 ${index % 2 === 0 ? 'md:text-right md:pr-6 md:pl-0' : ''}`}>
+                    <ul className="space-y-2 pl-6">
                       {exp.highlights.map((highlight, hIndex) => (
-                        <li key={hIndex} className={`text-muted-foreground text-sm flex items-start gap-2 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                        <li key={hIndex} className="text-muted-foreground text-sm flex items-start gap-2">
                           <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
                           {highlight}
                         </li>

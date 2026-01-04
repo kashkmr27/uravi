@@ -1,12 +1,14 @@
 import { ExternalLink, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useCallback, useEffect } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
+import { Link } from 'react-router-dom';
 
 const PortfolioSection = () => {
   const projects = [
     {
       title: "GMB Website Redesign",
       logo: "GMB",
+      slug: "gmb-website-redesign",
       description: "Led the complete redesign of GMB's digital presence, creating a modern, accessible, and user-friendly website that serves millions of union members across the UK.",
       link: "https://www.gmb.org.uk/",
       tags: ["UX Research", "UI Design", "Responsive", "Accessibility"],
@@ -14,6 +16,7 @@ const PortfolioSection = () => {
     {
       title: "Innov-8-2-Create",
       logo: "Innov-8-2-Create",
+      slug: "innov-8-2-create",
       description: "Supporting and sustaining an efficient innovation ecosystem in Europe. A comprehensive platform designed to foster collaboration and drive innovation across European networks.",
       link: "https://innov-8-2-create.eu/",
       tags: ["UI/UX Design", "Web Design", "Innovation"],
@@ -21,6 +24,7 @@ const PortfolioSection = () => {
     {
       title: "Climate Jobs",
       logo: "Climate Jobs",
+      slug: "climate-jobs",
       description: "A platform dedicated to promoting green employment opportunities and climate action initiatives across the UK, connecting workers with sustainable career paths.",
       link: "https://climatejobs.org.uk/",
       tags: ["Web Design", "UX Design", "Sustainability"],
@@ -28,6 +32,7 @@ const PortfolioSection = () => {
     {
       title: "Act for Change",
       logo: "Act for Change",
+      slug: "act-for-change",
       description: "An advocacy platform empowering communities to take action on social and environmental issues, featuring intuitive navigation and impactful storytelling.",
       link: "https://actforchange.org.uk/",
       tags: ["UI Design", "Branding", "Responsive"],
@@ -35,6 +40,7 @@ const PortfolioSection = () => {
     {
       title: "ASTP4KT",
       logo: "ASTP4KT",
+      slug: "astp4kt",
       description: "European knowledge transfer platform connecting researchers, innovators, and industry professionals to accelerate technology transfer and commercialization.",
       link: "https://astp4kt.eu/",
       tags: ["UX Research", "Web Design", "Innovation"],
@@ -132,13 +138,13 @@ const PortfolioSection = () => {
                             <span>View Live Site</span>
                             <ExternalLink size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                           </a>
-                          <a
-                            href="#case-studies"
+                          <Link
+                            to={`/case-studies/${project.slug}`}
                             className="inline-flex items-center gap-2 bg-foreground/10 hover:bg-foreground/20 text-foreground px-4 py-2 rounded-full transition-colors group"
                           >
                             <span>Case Study</span>
                             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -171,8 +177,8 @@ const PortfolioSection = () => {
                 key={index}
                 onClick={() => scrollTo(index)}
                 className={`w-2.5 h-2.5 rounded-full transition-all ${index === selectedIndex
-                    ? 'bg-accent w-8'
-                    : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                  ? 'bg-accent w-8'
+                  : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
                   }`}
                 aria-label={`Go to project ${index + 1}`}
               />

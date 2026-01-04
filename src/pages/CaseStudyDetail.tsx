@@ -202,7 +202,7 @@ const caseStudiesData: Record<string, {
 
 const CaseStudyDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  
+
   if (!slug || !caseStudiesData[slug]) {
     return <Navigate to="/case-studies" replace />;
   }
@@ -217,9 +217,9 @@ const CaseStudyDetail = () => {
     <>
       <Helmet>
         <title>{study.title} | Case Study - Uravi Sharma</title>
-        <meta 
-          name="description" 
-          content={study.subtitle} 
+        <meta
+          name="description"
+          content={study.subtitle}
         />
         <link rel="canonical" href={`https://uravisharma.com/case-studies/${slug}`} />
       </Helmet>
@@ -278,7 +278,7 @@ const CaseStudyDetail = () => {
               </div>
 
               {/* Hero Image */}
-              <div className="rounded-2xl overflow-hidden">
+              <div className="rounded-2xl overflow-hidden max-w-5xl mx-auto">
                 <img
                   src={study.heroImage}
                   alt={study.title}
@@ -308,7 +308,7 @@ const CaseStudyDetail = () => {
           {study.galleryImages[0] && (
             <section className="py-8">
               <div className="container mx-auto px-6">
-                <div className="rounded-2xl overflow-hidden">
+                <div className="rounded-2xl overflow-hidden max-w-5xl mx-auto">
                   <img
                     src={study.galleryImages[0]}
                     alt={`${study.title} - Design showcase`}
@@ -367,7 +367,7 @@ const CaseStudyDetail = () => {
           {study.galleryImages[1] && (
             <section className="py-8">
               <div className="container mx-auto px-6">
-                <div className="rounded-2xl overflow-hidden">
+                <div className="rounded-2xl overflow-hidden max-w-5xl mx-auto">
                   <img
                     src={study.galleryImages[1]}
                     alt={`${study.title} - Design detail`}

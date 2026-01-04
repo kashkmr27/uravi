@@ -1,4 +1,5 @@
-import { ArrowRight, Download, Linkedin, Dribbble, Instagram } from 'lucide-react';
+import { ArrowRight, Download, Linkedin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import profileAvatar from '@/assets/profile-avatar.png';
 const HeroSection = () => {
   const handleDownloadCV = () => {
@@ -123,10 +124,10 @@ const HeroSection = () => {
           </div>
           <h4 className="font-display text-lg font-semibold text-foreground mb-1">Case Studies</h4>
           <p className="text-muted-foreground text-sm mb-4">Fresh creations from our creative journey.</p>
-          <a href="#case-studies" className="inline-flex items-center gap-2 text-accent hover:text-accent-glow transition-colors group">
+          <Link to="/case-studies" className="inline-flex items-center gap-2 text-accent hover:text-accent-glow transition-colors group">
             <span className="text-sm font-medium">All Projects</span>
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </a>
+          </Link>
         </div>
 
         {/* Portfolio Card */}
@@ -143,10 +144,10 @@ const HeroSection = () => {
           </div>
           <h4 className="font-display text-lg font-semibold text-foreground mb-1">Portfolio</h4>
           <p className="text-muted-foreground text-sm mb-4">Designed with heart. Crafted with purpose.</p>
-          <a href="#work" className="inline-flex items-center gap-2 text-accent hover:text-accent-glow transition-colors group">
+          <Link to="/work" className="inline-flex items-center gap-2 text-accent hover:text-accent-glow transition-colors group">
             <span className="text-sm font-medium">All Projects</span>
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </a>
+          </Link>
         </div>
 
         {/* Stats Card */}
