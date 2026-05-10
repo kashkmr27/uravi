@@ -1,5 +1,4 @@
 import { Helmet } from 'react-helmet-async';
-import { ExternalLink, ArrowLeft, ArrowRight, CheckCircle2, Target, Users, Search, Lightbulb, Palette, Code2 } from 'lucide-react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -7,206 +6,389 @@ import Footer from '@/components/Footer';
 // Define the comprehensive CaseStudy type to support both basic and detailed layouts
 export type CaseStudy = {
   title: string;
-  subtitle: string;
+  heroText?: { part1: string; part2: string };
+  subtitle?: string;
   service: string;
   category: string;
   year: string;
   link?: string;
-  heroImage: string;
+  heroImage?: string;
   overview: string[];
   
   // Core sections (support for existing case studies)
-  challenge: {
+  challenge?: {
     description: string;
     points: string[];
   };
-  results: {
+  results?: {
     description: string;
     points: string[];
   };
-  galleryImages: string[];
+  galleryImages?: string[];
 
-  // Detailed sections (for the new, rich layout)
+  // Detailed sections (for the new, rich layout based on image)
   roleDetails?: Record<string, string>;
+  challenges?: { title: string; description: string }[];
   objectives?: { title: string; description: string }[];
-  demographics?: { label: string; value: string }[];
-  personas?: { role: string; description: string; initials: string }[];
-  process?: { title: string; description: string; icon: string }[];
-  wireframes?: { description: string; images: string[] };
+  targetAudience?: { title: string; description: string }[];
+  personasIntro?: string;
+  personas?: { name: string; points: string[] }[];
+  wireframesIntro?: string;
+  wireframes?: { images: string[] };
+  metrics?: { value: string; label: string; color?: string }[];
+  solutionIntro?: string;
+  solutions?: { title: string; description: string }[];
+  designSystemIntro?: string;
   styleGuide?: {
     colors: { name: string; hex: string; class: string }[];
-    typography: { primary: string; weights: string[] };
-    accessibility: string[];
+    typography: { primary: string; secondary?: string[]; weights: string[] };
+    accessibility: { title: string; description: string }[];
   };
-  techStack?: string[];
-  finalSolution?: { title: string; description: string }[];
-  metrics?: { value: string; label: string; colorClass?: string }[];
+  uiFeatures?: { image: string; title: string; description: string }[];
+  nextSteps?: { title: string; description: string }[];
 };
 
 const caseStudiesData: Record<string, CaseStudy> = {
-  // --- New Uravi Case Study ---
+  // --- New Uravi Case Study exactly matching image ---
   "uravi": {
-    title: "Make work feel less like work",
-    subtitle: "Supporting and connecting more connected, inclusive, and effective workplace cultures with HR tech.",
+    title: "Uravi Case Study",
+    heroText: {
+      part1: "Supporting and connecting more connected, inclusive ",
+      part2: "& productive teams - Uravi."
+    },
     service: "UX/UI Design",
     category: "B2B SaaS / Productivity",
     year: "2024",
     link: "https://uravi.com",
-    heroImage: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1600&h=900&fit=crop", // Placeholder
-    overview: [
-      "URavi is a SaaS platform designed to streamline team collaboration, improve project tracking, and foster a more connected workplace. Our goal was to design an intuitive interface that makes daily work tasks less burdensome and more engaging."
-    ],
     roleDetails: {
-      "My Role": "UX/UI Designer",
-      "Role Type": "Full-time / Contract",
-      "Industry": "B2B SaaS / HR Tech",
+      "Role": "UX / UI Designer",
+      "Role Type": "Part-time / Freelance base",
+      "Project": "B2B SaaS",
       "Duration": "3 Months",
-      "Platform": "Web App & Mobile App"
+      "Start / End Date": "1 Jan, 2024 - Present"
     },
-    challenge: {
-      description: "The modern workplace is often fragmented, with teams using disjointed tools that hinder communication and collaboration. This leads to decreased productivity, lowered employee engagement, and a lack of unified company culture.",
-      points: [
-        "Limited Collaboration: Teams struggled to collaborate efficiently in real-time.",
-        "Cluttered Interface: Existing tools were too complex, causing cognitive overload.",
-        "Slow Onboarding: New users found it difficult to navigate the platform.",
-        "Low Engagement: Employees felt disconnected from the company culture."
-      ]
-    },
+    overview: [
+      "Uravi is a B2B SaaS platform designed for mid-sized & enterprise companies to bridge the gap in employee engagement, alignment, and wellness.",
+      "Currently, the platform struggles with a high bounce rate. The core user flow lacks intuition, leading to confusion among users. Additionally, the outdated visuals negatively impact brand perception.",
+      "Through this redesign, my primary objective was to tackle these pain points head-on. The goal is to design an interface that is not only visually striking but also deeply rooted in user-centric principles."
+    ],
+    challenges: [
+      { title: "High Bounce Rate", description: "Users are leaving the platform quickly due to confusion, indicating a disconnect between the initial impression and user expectations." },
+      { title: "Unintuitive User Flow", description: "The primary user flow is complex, causing friction and frustration. Users find it difficult to navigate seamlessly to key features." },
+      { title: "Outdated Visuals", description: "The platform's appearance lacks modern appeal, negatively impacting the brand's perception and failing to inspire user confidence." },
+      { title: "Decreased Engagement", description: "Combined issues lead to reduced user engagement, as users struggle to find value and perform tasks efficiently." }
+    ],
     objectives: [
-      { title: "Improve Collaboration", description: "Create a unified workspace for real-time communication." },
-      { title: "Streamline Navigation", description: "Simplify the user interface for easier access to tools." },
-      { title: "Boost Engagement", description: "Design an interactive and visually appealing platform." }
+      { title: "Reduce Bounce Rate", description: "Implement strategies to capture and retain user attention, minimizing immediate platform abandonment." },
+      { title: "Streamline User Flow", description: "Simplify navigation and primary user paths, ensuring a frictionless and intuitive journey." }
     ],
-    demographics: [
-      { label: "Age", value: "25 - 45" },
-      { label: "Gender", value: "All" },
-      { label: "Geography", value: "Global" },
-      { label: "Tech Savvy", value: "Medium" }
+    targetAudience: [
+      { title: "Ages", description: "25-45" },
+      { title: "Professionals, HRs, Management", description: "Corporate employees, team leads, human resource managers, and executives." },
+      { title: "Tech Savvy", description: "Individuals comfortable using digital tools and platforms for daily tasks." }
     ],
+    personasIntro: "Uravi caters to a diverse user base, primarily targeting professionals within corporate environments.",
     personas: [
-      { role: "Project Manager", description: "Needs tools for tracking progress and managing team workloads efficiently.", initials: "PM" },
-      { role: "Creative Director", description: "Requires a centralized space for reviewing designs and providing feedback.", initials: "CD" },
-      { role: "Team Member", description: "Looks for clear task assignments, easy communication, and a simple interface.", initials: "TM" }
+      {
+        name: "Sarah (HR Manager), 34",
+        points: [
+          "Needs an easy way to track employee well-being and engagement.",
+          "Frustrated by low participation in company surveys.",
+          "Wants actionable insights, not just raw data."
+        ]
+      },
+      {
+        name: "Alex (Software Engineer), 28",
+        points: [
+          "Seeks a quiet, focused work environment while staying connected.",
+          "Finds current tools distracting and overwhelming with notifications.",
+          "Values a clean interface and deep work features."
+        ]
+      },
+      {
+        name: "David (Team Lead), 40",
+        points: [
+          "Needs to ensure his team is aligned and productive.",
+          "Wants a quick way to check project status without micromanaging.",
+          "Values clear communication and transparency."
+        ]
+      },
+      {
+        name: "Emily (CEO), 45",
+        points: [
+          "Requires a high-level overview of company performance and employee sentiment.",
+          "Finds current reporting tools inadequate and hard to use.",
+          "Values data visualization and strategic insights."
+        ]
+      }
     ],
-    process: [
-      { icon: "search", title: "Discovery & Research", description: "User interviews, competitor analysis, surveys" },
-      { icon: "lightbulb", title: "Ideation & Concepting", description: "Brainstorming, user journeys, wireframing" },
-      { icon: "target", title: "Prototyping & Testing", description: "High-fidelity prototypes, usability testing" },
-      { icon: "code", title: "Development & QA", description: "Design handoff, implementation, bug fixing" }
+    wireframesIntro: "Following the research phase, I moved to wireframing and prototyping to visualize the core user flow and page layouts.",
+    metrics: [
+      { value: "33%", label: "Decrease in Bounce Rate", color: "text-white" },
+      { value: "28%", label: "Increase in Engagement", color: "text-white" },
+      { value: "45%", label: "Growth in User Base", color: "text-white" }
     ],
-    wireframes: {
-      description: "Initial low-fidelity wireframes focused on layout, information architecture, and core user flows before committing to visual design.",
-      images: [
-        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop", // placeholder
-        "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=600&fit=crop"
-      ]
-    },
+    solutionIntro: "To address the challenges identified during the research phase, I designed a solution that focused on streamlining the user experience, enhancing visual appeal, and improving overall engagement.",
+    solutions: [
+      { title: "Streamlined User Flow", description: "I simplified the primary user journey by restructuring the navigation and removing unnecessary steps. The new flow is intuitive, allowing users to find what they need quickly and easily." },
+      { title: "Modernized Visuals", description: "A fresh, modern visual identity was implemented. This included a new color palette, updated typography, and consistent UI elements that align with the brand's premium positioning." },
+      { title: "Enhanced Dashboard", description: "The dashboard was redesigned to provide a comprehensive overview of key metrics and activities. Customizable widgets allow users to tailor the dashboard to their specific needs." },
+      { title: "Improved Collaboration Features", description: "New features were introduced to facilitate better team collaboration, including real-time updates, integrated messaging, and seamless file sharing." }
+    ],
+    designSystemIntro: "To ensure consistency across the platform, a comprehensive design system was created. This included a detailed style guide outlining colors, typography, spacing, and UI components.",
     styleGuide: {
       colors: [
-        { name: "Primary", hex: "#4F46E5", class: "bg-indigo-600" },
-        { name: "Secondary", hex: "#EC4899", class: "bg-pink-500" },
-        { name: "Background", hex: "#0F172A", class: "bg-slate-900" }
+        { name: "Primary", hex: "#1E1B4B", class: "bg-[#1E1B4B]" },
+        { name: "Secondary", hex: "#BE185D", class: "bg-[#BE185D]" }
       ],
       typography: {
         primary: "Inter",
+        secondary: ["Roboto", "Poppins", "Outfit"],
         weights: ["Light", "Regular", "Medium", "Semi Bold", "Bold"]
       },
-      accessibility: ["AA Compliant", "High contrast colors", "Tap targets minimum 44x44px"]
-    },
-    techStack: ["Figma", "Miro", "Next.js", "Tailwind CSS"],
-    finalSolution: [
-      { title: "Real-Time Collaboration", description: "Seamless communication tools integrated directly into the workspace." },
-      { title: "Intuitive Dashboard", description: "Clean and user-friendly dashboard for quick access to key features." },
-      { title: "Advanced Search", description: "Powerful search functionality to find documents instantly." },
-      { title: "Customizable Workspaces", description: "Personalized layouts to suit different team needs." }
-    ],
-    metrics: [
-      { value: "85%", label: "Increase in User Engagement", colorClass: "text-indigo-500" },
-      { value: "30%", label: "Reduction in Task Time", colorClass: "text-pink-500" },
-      { value: "95%", label: "Positive User Feedback", colorClass: "text-orange-500" }
-    ],
-    results: {
-      description: "The redesigned platform delivered a modern, cohesive experience that directly addressed the initial user pain points.",
-      points: [
-        "Significantly improved team collaboration and communication",
-        "Reduced onboarding time for new employees",
-        "High adoption rate among targeted user groups"
+      accessibility: [
+        { title: "High Contrast Colors", description: "Ensuring all text and UI elements meet WCAG contrast guidelines for optimal readability." },
+        { title: "Clear Navigation", description: "Implementing straightforward and intuitive navigation paths to help users find information easily." },
+        { title: "Focus States", description: "Designing visible focus indicators for all interactive elements to support keyboard navigation." },
+        { title: "Scalable Text", description: "Allowing users to adjust text size without breaking the layout or functionality." }
       ]
     },
-    galleryImages: [
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=900&fit=crop",
-      "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1600&h=900&fit=crop"
+    nextSteps: [
+      { title: "Development", description: "Collaborate closely with the development team to ensure accurate implementation of the new designs." },
+      { title: "Usability Testing", description: "Conduct further usability testing on the live platform to gather feedback and identify areas for refinement." },
+      { title: "Continuous Iteration", description: "Regularly review analytics and user feedback to continuously improve the platform's performance and user experience." }
     ]
   },
   // --- Existing Case Studies ---
   "gmb-website-redesign": {
-    title: "GMB Website Redesign",
-    subtitle: "Transforming the UK's leading trade union digital presence",
+    title: "GMB Union",
+    heroText: {
+      part1: "GMB Union - ",
+      part2: "Make work better"
+    },
+    subtitle: "GMB Union is a general trade union in the United Kingdom that represents workers in many different industries, from retail to manufacturing, and the public sector.",
     service: "UI/UX Design",
     category: "Web Redesign",
     year: "2024",
     link: "https://www.gmb.org.uk/",
-    heroImage: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1600&h=900&fit=crop",
+    roleDetails: {
+      "Role": "UX / UI Designer",
+      "Role Type": "Part-time / Freelance base",
+      "Project": "Web & App Design",
+      "Duration": "3 Months",
+      "Start / End Date": "1 Jan, 2024 - Present"
+    },
     overview: [
       "GMB Union is one of the largest trade unions in the UK, representing over 500,000 members across various sectors. The project aimed to completely redesign their digital presence to better serve their members and attract new ones.",
       "The redesign focused on improving accessibility, streamlining the user journey, and creating a modern, engaging experience that reflects GMB's values of solidarity and worker empowerment."
     ],
-    challenge: {
-      description: "The existing website had significant usability issues and outdated design patterns that were hindering member engagement and new sign-ups.",
-      points: [
-        "Complex navigation structure with over 200 pages",
-        "Poor mobile experience with 60% mobile traffic",
-        "Accessibility issues affecting older members",
-        "Inconsistent branding across different sections"
+    challenges: [
+      { title: "Complex Navigation", description: "The existing website had significant usability issues and outdated design patterns that were hindering member engagement and new sign-ups." },
+      { title: "Poor Mobile Experience", description: "A majority of the traffic comes from mobile devices, yet the previous design offered a subpar and frustrating mobile experience." },
+      { title: "Accessibility Issues", description: "The platform failed to meet modern accessibility standards, making it difficult for older or disabled members to use." },
+      { title: "Inconsistent Branding", description: "Different sections of the website lacked visual consistency, negatively impacting the brand's perception." }
+    ],
+    objectives: [
+      { title: "Improve Engagement", description: "Increase member engagement and simplify the process for new sign-ups." },
+      { title: "Streamline User Flow", description: "Simplify navigation and primary user paths, ensuring a frictionless and intuitive journey." }
+    ],
+    targetAudience: [
+      { title: "Ages", description: "18-65+" },
+      { title: "Professionals", description: "Workers across various sectors including retail, manufacturing, and public sector." },
+      { title: "Tech Savvy", description: "Varying levels of tech savviness, from beginners to advanced users." }
+    ],
+    personasIntro: "GMB Union caters to a diverse user base, primarily targeting workers across various sectors in the UK.",
+    personas: [
+      {
+        name: "Sarah (Retail Worker), 34",
+        points: [
+          "Needs an easy way to access union resources.",
+          "Frustrated by the complex website navigation.",
+          "Wants to quickly find information about her rights."
+        ]
+      },
+      {
+        name: "David (Manufacturing Worker), 45",
+        points: [
+          "Needs to stay updated on union news and events.",
+          "Finds the current website outdated and hard to read.",
+          "Wants a mobile-friendly experience."
+        ]
+      },
+      {
+        name: "Emily (Nurse), 28",
+        points: [
+          "Looking to join a union and wants a simple sign-up process.",
+          "Needs clear information about membership benefits.",
+          "Values transparency and modern digital experiences."
+        ]
+      },
+      {
+        name: "Michael (Public Sector Worker), 55",
+        points: [
+          "Requires accessible text and clear contrast.",
+          "Needs to easily find contact information for representatives.",
+          "Values straightforward and traditional communication."
+        ]
+      }
+    ],
+    wireframesIntro: "Following the research phase, I moved to wireframing and prototyping to visualize the core user flow and page layouts.",
+    uiFeatures: [
+      { 
+        image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop", 
+        title: "Typography", 
+        description: "The primary typeface chosen for GMB union is Poppins. It provides a clean, modern look while ensuring excellent readability across all devices." 
+      },
+      { 
+        image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=600&fit=crop", 
+        title: "Color palette", 
+        description: "The primary brand color is orange to maintain brand recognition, paired with teal and deep navy for a professional and engaging aesthetic." 
+      }
+    ],
+    metrics: [
+      { value: "40%", label: "increase in membership sign-ups", color: "text-white" },
+      { value: "65%", label: "improvement in mobile engagement", color: "text-white" },
+      { value: "AA", label: "accessibility compliance", color: "text-white" }
+    ],
+    solutionIntro: "To address the challenges identified during the research phase, I designed a solution that focused on streamlining the user experience, enhancing visual appeal, and improving overall engagement.",
+    solutions: [
+      { title: "Streamlined Navigation", description: "I simplified the primary user journey by restructuring the navigation and removing unnecessary steps. The new flow is intuitive, allowing users to find what they need quickly and easily." },
+      { title: "Accessible Design", description: "Ensuring all text and UI elements meet WCAG contrast guidelines for optimal readability and accessibility for all members." },
+      { title: "Mobile-First Approach", description: "The platform was redesigned to provide a comprehensive and responsive experience across all devices, particularly on mobile." },
+      { title: "Modernized Branding", description: "A fresh, modern visual identity was implemented. This included a new color palette, updated typography, and consistent UI elements that align with the brand's premium positioning." }
+    ],
+    designSystemIntro: "To ensure consistency across the platform, a comprehensive design system was created. This included a detailed style guide outlining colors, typography, spacing, and UI components.",
+    styleGuide: {
+      colors: [
+        { name: "Primary", hex: "#FF5A00", class: "bg-[#FF5A00]" },
+        { name: "Secondary", hex: "#009F8C", class: "bg-[#009F8C]" }
+      ],
+      typography: {
+        primary: "Poppins",
+        secondary: ["Inter", "Roboto", "Outfit"],
+        weights: ["Light", "Regular", "Medium", "Semi Bold", "Bold"]
+      },
+      accessibility: [
+        { title: "High Contrast Colors", description: "Ensuring all text and UI elements meet WCAG contrast guidelines for optimal readability." },
+        { title: "Clear Navigation", description: "Implementing straightforward and intuitive navigation paths to help users find information easily." },
+        { title: "Focus States", description: "Designing visible focus indicators for all interactive elements to support keyboard navigation." },
+        { title: "Scalable Text", description: "Allowing users to adjust text size without breaking the layout or functionality." }
       ]
     },
-    results: {
-      description: "The new website launched to positive reception from both members and stakeholders, with significant improvements in key metrics.",
-      points: [
-        "40% increase in membership sign-ups",
-        "65% improvement in mobile engagement",
-        "WCAG 2.1 AA accessibility compliance",
-        "Unified design system across all pages"
-      ]
-    },
-    galleryImages: [
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=600&fit=crop"
+    nextSteps: [
+      { title: "Development", description: "Collaborate closely with the development team to ensure accurate implementation of the new designs." },
+      { title: "Usability Testing", description: "Conduct further usability testing on the live platform to gather feedback and identify areas for refinement." },
+      { title: "Continuous Iteration", description: "Regularly review analytics and user feedback to continuously improve the platform's performance and user experience." }
     ]
   },
   "innov-8-2-create": {
     title: "Innov-8-2-Create",
-    subtitle: "Building Europe's innovation ecosystem platform",
+    heroText: {
+      part1: "Supporting and creating a more connected, inclusive ",
+      part2: "& engaging way to manage the work"
+    },
+    subtitle: "Innov-8-2-Create is a digital platform that makes it easy for you to innovate, ideate, and collaborate. It's a space where you can share your ideas and work together to bring them to life.",
     service: "UI/UX Design",
     category: "Platform Design",
     year: "2023",
     link: "https://innov-8-2-create.eu/",
-    heroImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=900&fit=crop",
+    roleDetails: {
+      "Role": "UX / UI Designer",
+      "Role Type": "Part-time / Freelance base",
+      "Project": "B2B SaaS",
+      "Duration": "3 Months",
+      "Start / End Date": "1 Jan, 2024 - Present"
+    },
     overview: [
-      "Innov-8-2-Create is a European initiative aimed at fostering innovation and collaboration across research institutions, startups, and enterprises.",
-      "The platform connects stakeholders across the innovation ecosystem, providing tools for collaboration, knowledge sharing, and project management."
+      "Innov-8-2-Create is a B2B SaaS platform designed for mid-sized & enterprise companies to bridge the gap in employee engagement, alignment, and wellness.",
+      "Currently, the platform struggles with a high bounce rate. The core user flow lacks intuition, leading to confusion among users. Additionally, the outdated visuals negatively impact brand perception.",
+      "Through this redesign, my primary objective was to tackle these pain points head-on. The goal is to design an interface that is not only visually striking but also deeply rooted in user-centric principles."
     ],
-    challenge: {
-      description: "Creating a unified platform that serves diverse user groups with different needs and technical capabilities.",
-      points: [
-        "Multiple user personas with varying needs",
-        "Complex data visualization requirements",
-        "Multilingual support for EU partners",
-        "Integration with existing EU systems"
+    challenges: [
+      { title: "High Bounce Rate", description: "Users are leaving the platform quickly due to confusion, indicating a disconnect between the initial impression and user expectations." },
+      { title: "Unintuitive User Flow", description: "The primary user flow is complex, causing friction and frustration. Users find it difficult to navigate seamlessly to key features." },
+      { title: "Outdated Visuals", description: "The platform's appearance lacks modern appeal, negatively impacting the brand's perception and failing to inspire user confidence." },
+      { title: "Decreased Engagement", description: "Combined issues lead to reduced user engagement, as users struggle to find value and perform tasks efficiently." }
+    ],
+    objectives: [
+      { title: "Reduce Bounce Rate", description: "Implement strategies to capture and retain user attention, minimizing immediate platform abandonment." },
+      { title: "Streamline User Flow", description: "Simplify navigation and primary user paths, ensuring a frictionless and intuitive journey." }
+    ],
+    targetAudience: [
+      { title: "Ages", description: "25-45" },
+      { title: "Professionals, HRs, Management", description: "Corporate employees, team leads, human resource managers, and executives." },
+      { title: "Tech Savvy", description: "Individuals comfortable using digital tools and platforms for daily tasks." }
+    ],
+    personasIntro: "Innov-8-2-Create caters to a diverse user base, primarily targeting professionals within corporate environments.",
+    personas: [
+      {
+        name: "Sarah (HR Manager), 34",
+        points: [
+          "Needs an easy way to track employee well-being and engagement.",
+          "Frustrated by low participation in company surveys.",
+          "Wants actionable insights, not just raw data."
+        ]
+      },
+      {
+        name: "Alex (Software Engineer), 28",
+        points: [
+          "Seeks a quiet, focused work environment while staying connected.",
+          "Finds current tools distracting and overwhelming with notifications.",
+          "Values a clean interface and deep work features."
+        ]
+      },
+      {
+        name: "David (Team Lead), 40",
+        points: [
+          "Needs to ensure his team is aligned and productive.",
+          "Wants a quick way to check project status without micromanaging.",
+          "Values clear communication and transparency."
+        ]
+      },
+      {
+        name: "Emily (CEO), 45",
+        points: [
+          "Requires a high-level overview of company performance and employee sentiment.",
+          "Finds current reporting tools inadequate and hard to use.",
+          "Values data visualization and strategic insights."
+        ]
+      }
+    ],
+    wireframesIntro: "Following the research phase, I moved to wireframing and prototyping to visualize the core user flow and page layouts.",
+    metrics: [
+      { value: "33%", label: "Decrease in Bounce Rate", color: "text-white" },
+      { value: "28%", label: "Increase in Engagement", color: "text-white" },
+      { value: "45%", label: "Growth in User Base", color: "text-white" }
+    ],
+    solutionIntro: "To address the challenges identified during the research phase, I designed a solution that focused on streamlining the user experience, enhancing visual appeal, and improving overall engagement.",
+    solutions: [
+      { title: "Streamlined User Flow", description: "I simplified the primary user journey by restructuring the navigation and removing unnecessary steps. The new flow is intuitive, allowing users to find what they need quickly and easily." },
+      { title: "Modernized Visuals", description: "A fresh, modern visual identity was implemented. This included a new color palette, updated typography, and consistent UI elements that align with the brand's premium positioning." },
+      { title: "Enhanced Dashboard", description: "The dashboard was redesigned to provide a comprehensive overview of key metrics and activities. Customizable widgets allow users to tailor the dashboard to their specific needs." },
+      { title: "Improved Collaboration Features", description: "New features were introduced to facilitate better team collaboration, including real-time updates, integrated messaging, and seamless file sharing." }
+    ],
+    designSystemIntro: "To ensure consistency across the platform, a comprehensive design system was created. This included a detailed style guide outlining colors, typography, spacing, and UI components.",
+    styleGuide: {
+      colors: [
+        { name: "Primary", hex: "#1E1B4B", class: "bg-[#1E1B4B]" },
+        { name: "Secondary", hex: "#BE185D", class: "bg-[#BE185D]" }
+      ],
+      typography: {
+        primary: "Inter",
+        secondary: ["Roboto", "Poppins", "Outfit"],
+        weights: ["Light", "Regular", "Medium", "Semi Bold", "Bold"]
+      },
+      accessibility: [
+        { title: "High Contrast Colors", description: "Ensuring all text and UI elements meet WCAG contrast guidelines for optimal readability." },
+        { title: "Clear Navigation", description: "Implementing straightforward and intuitive navigation paths to help users find information easily." },
+        { title: "Focus States", description: "Designing visible focus indicators for all interactive elements to support keyboard navigation." },
+        { title: "Scalable Text", description: "Allowing users to adjust text size without breaking the layout or functionality." }
       ]
     },
-    results: {
-      description: "Successfully launched platform now serving innovation networks across 12 European countries.",
-      points: [
-        "500+ registered organizations",
-        "50+ active innovation projects",
-        "Support for 8 EU languages",
-        "Seamless EU system integration"
-      ]
-    },
-    galleryImages: [
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=600&fit=crop"
+    nextSteps: [
+      { title: "Development", description: "Collaborate closely with the development team to ensure accurate implementation of the new designs." },
+      { title: "Usability Testing", description: "Conduct further usability testing on the live platform to gather feedback and identify areas for refinement." },
+      { title: "Continuous Iteration", description: "Regularly review analytics and user feedback to continuously improve the platform's performance and user experience." }
     ]
   },
   "climate-jobs": {
@@ -324,422 +506,441 @@ const CaseStudyDetail = () => {
   }
 
   const study = caseStudiesData[slug];
-  const studySlugs = Object.keys(caseStudiesData);
-  const currentIndex = studySlugs.indexOf(slug);
-  const prevSlug = currentIndex > 0 ? studySlugs[currentIndex - 1] : null;
-  const nextSlug = currentIndex < studySlugs.length - 1 ? studySlugs[currentIndex + 1] : null;
-
-  const renderIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'search': return <Search className="w-6 h-6" />;
-      case 'lightbulb': return <Lightbulb className="w-6 h-6" />;
-      case 'target': return <Target className="w-6 h-6" />;
-      case 'code': return <Code2 className="w-6 h-6" />;
-      default: return <Search className="w-6 h-6" />;
-    }
-  };
 
   return (
-    <>
+    <div className="bg-[#FAFAFA] text-slate-900 font-sans min-h-screen">
       <Helmet>
         <title>{study.title} | Case Study - Uravi Sharma</title>
-        <meta name="description" content={study.subtitle} />
+        <meta name="description" content={study.subtitle || study.overview[0]} />
         <link rel="canonical" href={`https://uravisharma.com/case-studies/${slug}`} />
       </Helmet>
 
-      <div className="min-h-screen bg-background">
-        <Header />
-        
-        <main className="pt-24 pb-12">
-          
-          {/* HERO SECTION */}
-          <section className="py-12 md:py-20 relative overflow-hidden bg-foreground text-background">
-            {/* Background elements if needed for dark mode feel inside hero */}
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-background/5 to-transparent pointer-events-none z-0"></div>
-            
-            <div className="container mx-auto px-6 relative z-10">
-              <Link
-                to="/case-studies"
-                className="inline-flex items-center gap-2 text-background/70 hover:text-background transition-colors mb-8"
-              >
-                <ArrowLeft size={18} />
-                <span>Back to Case Studies</span>
-              </Link>
+      <Header />
 
-              <div className="max-w-4xl mb-12">
-                <div className="inline-block px-3 py-1 bg-indigo-500/20 border border-indigo-500/30 rounded-full text-indigo-300 text-xs font-semibold tracking-wider uppercase mb-6">
-                  Case Study
-                </div>
-                <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold mb-6 tracking-tight leading-tight">
+      <main className="pb-0 pt-20">
+        {/* HERO SECTION */}
+        <section className="relative pt-24 pb-24 px-4 overflow-hidden bg-[#0A0B10] text-white border-b border-white/5">
+          <div className="absolute inset-0 bg-gradient-to-b from-indigo-900/20 via-[#0A0B10] to-[#0A0B10] z-0"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-pink-500/10 blur-[150px] rounded-full z-0 pointer-events-none"></div>
+          <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-teal-500/10 blur-[120px] rounded-full z-0 pointer-events-none"></div>
+          
+          <div className="container max-w-5xl mx-auto relative z-10 text-center flex flex-col items-center pt-10">
+            <Link to="/#work" className="text-white/60 hover:text-white mb-8 transition-colors">
+              &larr; Back to Work
+            </Link>
+            
+            {study.heroText ? (
+              <>
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight max-w-4xl">
+                  {study.heroText.part1}
+                  <span className="text-teal-400">{study.heroText.part2}</span>
+                </h1>
+                {study.subtitle && (
+                  <p className="text-xl md:text-2xl text-white/70 mb-10 max-w-2xl leading-relaxed">
+                    {study.subtitle}
+                  </p>
+                )}
+              </>
+            ) : (
+              <>
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight max-w-4xl">
                   {study.title}
                 </h1>
-                <p className="text-xl md:text-2xl text-background/70 mb-8 max-w-2xl leading-relaxed">
+                <p className="text-xl md:text-2xl text-white/70 mb-10 max-w-2xl leading-relaxed">
                   {study.subtitle}
                 </p>
-                
-                {study.link && (
-                  <a
-                    href={study.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1"
-                  >
-                    Visit Website <ExternalLink size={16} className="ml-2" />
-                  </a>
+              </>
+            )}
+            
+            {study.link && (
+              <a 
+                href={study.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(236,72,153,0.4)] hover:shadow-[0_0_30px_rgba(236,72,153,0.6)] transform hover:-translate-y-1 tracking-wide"
+              >
+                Live Project
+              </a>
+            )}
+          </div>
+        </section>
+
+        <div className="bg-[#F8FAFC]">
+          {/* ROLE DETAILS & OVERVIEW */}
+          <section className="py-24 px-4">
+            <div className="container max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+              <div className="lg:col-span-4">
+                {study.roleDetails ? (
+                  <div className="bg-[#F0F4F8] rounded-[2rem] p-10 border border-slate-200/60 sticky top-32">
+                    <h3 className="text-2xl font-bold mb-8 text-slate-800">Role Details</h3>
+                    <div className="space-y-6">
+                      {Object.entries(study.roleDetails).map(([key, value]) => (
+                        <div key={key} className="border-b border-slate-200/80 pb-4 last:border-0 last:pb-0">
+                          <div className="text-sm font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">{key}</div>
+                          <div className="font-bold text-slate-800 text-lg">{value}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="bg-[#F0F4F8] rounded-[2rem] p-10 border border-slate-200/60 sticky top-32">
+                    <h3 className="text-2xl font-bold mb-8 text-slate-800">Project Details</h3>
+                    <div className="space-y-6">
+                      <div className="border-b border-slate-200/80 pb-4">
+                        <div className="text-sm font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">Service</div>
+                        <div className="font-bold text-slate-800 text-lg">{study.service}</div>
+                      </div>
+                      <div className="border-b border-slate-200/80 pb-4">
+                        <div className="text-sm font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">Category</div>
+                        <div className="font-bold text-slate-800 text-lg">{study.category}</div>
+                      </div>
+                      <div className="pb-4">
+                        <div className="text-sm font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">Year</div>
+                        <div className="font-bold text-slate-800 text-lg">{study.year}</div>
+                      </div>
+                    </div>
+                  </div>
                 )}
               </div>
-            </div>
-          </section>
-
-          {/* ROLE DETAILS */}
-          {study.roleDetails && (
-            <section className="py-12 border-b border-border bg-card">
-              <div className="container mx-auto px-6">
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-5xl">
-                  {Object.entries(study.roleDetails).map(([key, value]) => (
-                    <div key={key}>
-                      <div className="text-xs text-muted-foreground uppercase tracking-wider mb-2 font-semibold">{key}</div>
-                      <div className="text-sm font-medium text-foreground">{value}</div>
-                    </div>
+              <div className="lg:col-span-8 flex flex-col justify-start pt-4">
+                <h2 className="text-4xl font-bold mb-8 text-slate-900">Overview</h2>
+                <div className="space-y-6 text-slate-600 leading-relaxed text-lg">
+                  {study.overview.map((paragraph, idx) => (
+                    <p key={idx}>{paragraph}</p>
                   ))}
                 </div>
               </div>
-            </section>
-          )}
-
-          {/* OVERVIEW */}
-          <section className="py-16 md:py-24">
-            <div className="container mx-auto px-6">
-              <div className="max-w-3xl mx-auto">
-                <h2 className="font-display text-2xl md:text-4xl font-bold text-foreground mb-8">
-                  Overview
-                </h2>
-                {study.overview.map((paragraph, index) => (
-                  <p key={index} className="text-muted-foreground text-lg leading-relaxed mb-6">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
             </div>
           </section>
 
-          {/* THE CHALLENGE & OBJECTIVES */}
-          <section className="py-16 md:py-24 bg-secondary/30">
-            <div className="container mx-auto px-6">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
-                <div>
-                  <h2 className="font-display text-2xl md:text-4xl font-bold text-foreground mb-6">
-                    The Challenge
-                  </h2>
-                  <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                    {study.challenge.description}
-                  </p>
-                  
-                  <div className="space-y-6">
-                    {study.challenge.points.map((point, index) => {
-                      const [title, desc] = point.includes(":") ? point.split(":") : [point, ""];
-                      return (
-                        <div key={index} className="flex gap-4">
-                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center font-bold text-sm">
-                            {index + 1}
-                          </div>
+          {/* CHALLENGES & OBJECTIVES (New layout) or Fallback to Old Layout */}
+          {(study.challenges || study.challenge) && (
+            <section className="py-16 px-4">
+              <div className="container max-w-6xl mx-auto space-y-16">
+                
+                {/* Key Challenges */}
+                {study.challenges ? (
+                  <div>
+                    <h2 className="text-3xl font-bold mb-8 text-slate-900">Key Challenges</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {study.challenges.map((challenge, idx) => (
+                        <div key={idx} className="bg-white p-8 rounded-3xl shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-slate-100/80 flex gap-5 items-start transition-transform hover:-translate-y-1 duration-300">
+                          <div className="w-1.5 h-12 bg-gradient-to-b from-pink-400 to-rose-500 rounded-full flex-shrink-0 mt-1"></div>
                           <div>
-                            <h4 className="text-foreground font-semibold mb-1 text-lg">{title}</h4>
-                            {desc && <p className="text-muted-foreground leading-relaxed">{desc.trim()}</p>}
+                            <h4 className="font-bold text-xl mb-3 text-slate-900">{challenge.title}</h4>
+                            <p className="text-slate-500 leading-relaxed text-[15px]">{challenge.description}</p>
                           </div>
                         </div>
-                      )
-                    })}
+                      ))}
+                    </div>
                   </div>
-                </div>
-
-                {study.objectives && (
+                ) : study.challenge && (
                   <div>
-                    <h2 className="font-display text-2xl md:text-4xl font-bold text-foreground mb-6">
-                      Goal / Objectives
-                    </h2>
-                    <div className="grid gap-6">
-                      {study.objectives.map((obj, idx) => (
-                        <div key={idx} className="bg-background border border-border p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                          <div className="w-10 h-10 rounded-lg bg-indigo-500/10 text-indigo-500 flex items-center justify-center mb-4">
-                            <Target className="w-5 h-5" />
-                          </div>
-                          <h4 className="text-foreground font-semibold mb-2 text-lg">{obj.title}</h4>
-                          <p className="text-muted-foreground leading-relaxed">{obj.description}</p>
+                    <h2 className="text-3xl font-bold mb-8 text-slate-900">The Challenge</h2>
+                    <p className="text-slate-600 leading-relaxed text-lg mb-8">{study.challenge.description}</p>
+                    <div className="grid grid-cols-1 gap-4">
+                      {study.challenge.points.map((point, idx) => (
+                        <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4">
+                          <div className="w-8 h-8 rounded-full bg-rose-100 text-rose-500 flex items-center justify-center font-bold text-sm flex-shrink-0">{idx + 1}</div>
+                          <p className="text-slate-700 font-medium">{point}</p>
                         </div>
                       ))}
                     </div>
                   </div>
                 )}
-              </div>
-            </div>
-          </section>
 
-          {/* AUDIENCE / DEMOGRAPHICS & PERSONAS */}
-          {(study.demographics || study.personas) && (
-            <section className="py-16 md:py-24">
-              <div className="container mx-auto px-6">
-                <div className="max-w-6xl mx-auto">
-                  {study.demographics && (
-                    <div className="mb-20">
-                      <h2 className="font-display text-2xl md:text-4xl font-bold text-foreground mb-8 text-center">
-                        User Demographics
-                      </h2>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                        {study.demographics.map((demo, idx) => (
-                          <div key={idx} className="bg-card border border-border p-6 rounded-2xl text-center">
-                            <div className="text-muted-foreground text-sm font-medium mb-2 uppercase tracking-wide">{demo.label}</div>
-                            <div className="text-2xl font-bold text-foreground">{demo.value}</div>
+                {/* Core Objectives */}
+                {study.objectives && (
+                  <div>
+                    <h2 className="text-3xl font-bold mb-8 text-slate-900">Core Objectives</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {study.objectives.map((obj, idx) => (
+                        <div key={idx} className="bg-white p-8 rounded-3xl shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-slate-100/80 flex gap-5 items-start transition-transform hover:-translate-y-1 duration-300">
+                          <div className="w-1.5 h-12 bg-gradient-to-b from-teal-400 to-emerald-500 rounded-full flex-shrink-0 mt-1"></div>
+                          <div>
+                            <h4 className="font-bold text-xl mb-3 text-slate-900">{obj.title}</h4>
+                            <p className="text-slate-500 leading-relaxed text-[15px]">{obj.description}</p>
                           </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {study.personas && (
-                    <div>
-                      <h2 className="font-display text-2xl md:text-4xl font-bold text-foreground mb-8 text-center">
-                        User Personas
-                      </h2>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {study.personas.map((persona, idx) => (
-                          <div key={idx} className="bg-secondary/20 border border-border p-8 rounded-3xl relative">
-                            <div className="w-16 h-16 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-xl mb-6 shadow-sm border border-indigo-200 dark:border-indigo-800">
-                              {persona.initials}
-                            </div>
-                            <h3 className="text-xl font-bold text-foreground mb-4">{persona.role}</h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                              "{persona.description}"
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </section>
-          )}
-
-          {/* DESIGN PROCESS */}
-          {study.process && (
-            <section className="py-16 md:py-24 bg-card border-y border-border">
-              <div className="container mx-auto px-6">
-                <div className="max-w-6xl mx-auto">
-                  <h2 className="font-display text-2xl md:text-4xl font-bold text-foreground mb-12 text-center">
-                    Design Process
-                  </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {study.process.map((step, idx) => (
-                      <div key={idx} className="relative group">
-                        {idx < study.process.length - 1 && (
-                          <div className="hidden lg:block absolute top-10 left-[60%] w-full h-0.5 bg-border z-0"></div>
-                        )}
-                        <div className="relative z-10 bg-background border border-border p-6 rounded-2xl h-full shadow-sm hover:shadow-md transition-all group-hover:-translate-y-1">
-                          <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center mb-6 text-foreground border border-border">
-                            {renderIcon(step.icon)}
-                          </div>
-                          <div className="text-indigo-500 text-xs font-bold tracking-wider uppercase mb-3">
-                            Phase 0{idx + 1}
-                          </div>
-                          <h3 className="text-xl font-bold text-foreground mb-3">{step.title}</h3>
-                          <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </section>
-          )}
-
-          {/* WIREFRAMES */}
-          {study.wireframes && (
-            <section className="py-16 md:py-24">
-              <div className="container mx-auto px-6">
-                <div className="max-w-6xl mx-auto">
-                  <div className="text-center mb-12">
-                    <h2 className="font-display text-2xl md:text-4xl font-bold text-foreground mb-4">
-                      Wireframes & Prototyping
-                    </h2>
-                    <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                      {study.wireframes.description}
-                    </p>
-                  </div>
-                  
-                  <div className="bg-secondary/40 rounded-3xl p-8 md:p-12">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                      {study.wireframes.images.map((img, idx) => (
-                        <div key={idx} className="rounded-xl overflow-hidden shadow-lg bg-background border border-border">
-                          <img src={img} alt={`Wireframe ${idx+1}`} className="w-full h-auto" />
                         </div>
                       ))}
                     </div>
                   </div>
-                </div>
+                )}
+
+                {/* Target Audience */}
+                {study.targetAudience && (
+                  <div className="bg-white p-10 rounded-[2.5rem] shadow-[0_2px_20px_rgba(0,0,0,0.02)] border border-slate-100/80 mt-10">
+                    <h2 className="text-2xl font-bold mb-10 text-slate-900 text-center">Target Audience</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-slate-100">
+                      {study.targetAudience.map((audience, idx) => (
+                        <div key={idx} className="pt-6 md:pt-0 md:px-8 text-center flex flex-col items-center">
+                          <h4 className="font-bold text-lg mb-4 text-slate-900">{audience.title}</h4>
+                          <p className="text-slate-500 text-[15px] leading-relaxed max-w-xs">{audience.description}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
               </div>
             </section>
           )}
 
-          {/* STYLE GUIDE */}
-          {study.styleGuide && (
-            <section className="py-16 md:py-24 bg-card border-y border-border">
-              <div className="container mx-auto px-6">
-                <div className="max-w-6xl mx-auto">
-                  <h2 className="font-display text-2xl md:text-4xl font-bold text-foreground mb-12 text-center">
-                    Design System
-                  </h2>
+          {/* USER PERSONAS */}
+          {study.personas && (
+            <section className="py-24 px-4 bg-white border-y border-slate-100">
+              <div className="container max-w-5xl mx-auto">
+                <div className="text-center mb-20">
+                  <h2 className="text-4xl font-bold mb-6 text-slate-900">User Personas</h2>
+                  {study.personasIntro && <p className="text-slate-500 max-w-2xl mx-auto text-lg">{study.personasIntro}</p>}
+                </div>
+
+                <div className="relative py-4">
+                  {/* Vertical Timeline Line */}
+                  <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-teal-100 md:-translate-x-1/2"></div>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    {/* Colors */}
-                    <div className="bg-background border border-border p-8 rounded-3xl shadow-sm">
-                      <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
-                        <Palette className="w-5 h-5 text-muted-foreground" /> Color Palette
-                      </h3>
-                      <div className="space-y-4">
-                        {study.styleGuide.colors.map((color, idx) => (
-                          <div key={idx} className="flex items-center gap-4 bg-secondary/30 p-3 rounded-xl border border-border">
-                            <div className={`w-16 h-16 rounded-lg ${color.class} shadow-inner`}></div>
-                            <div>
-                              <div className="font-semibold text-foreground">{color.name}</div>
-                              <div className="text-muted-foreground font-mono text-sm">{color.hex}</div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Typography & Accessibility */}
-                    <div className="flex flex-col gap-6">
-                      <div className="bg-background border border-border p-8 rounded-3xl shadow-sm flex-1">
-                        <h3 className="text-xl font-bold text-foreground mb-6">Typography</h3>
-                        <div className="flex items-end gap-6 mb-6">
-                          <div className="text-7xl font-bold text-foreground leading-none">Aa</div>
-                          <div className="text-2xl font-medium text-muted-foreground pb-2">{study.styleGuide.typography.primary}</div>
-                        </div>
-                        <div className="flex flex-wrap gap-2 mt-8">
-                          {study.styleGuide.typography.weights.map((weight, idx) => (
-                            <span key={idx} className="px-3 py-1 bg-secondary rounded-full text-sm text-foreground font-medium border border-border">
-                              {weight}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="bg-background border border-border p-8 rounded-3xl shadow-sm">
-                        <h3 className="text-xl font-bold text-foreground mb-4">Accessibility Focus</h3>
-                        <ul className="space-y-3">
-                          {study.styleGuide.accessibility.map((item, idx) => (
-                            <li key={idx} className="flex items-center gap-3 text-muted-foreground">
-                              <CheckCircle2 className="w-5 h-5 text-green-500" />
-                              {item}
+                  {study.personas.map((persona, idx) => (
+                    <div key={idx} className={`relative flex items-center mb-16 last:mb-0 ${idx % 2 === 0 ? 'justify-start md:pr-16' : 'justify-end md:pl-16'}`}>
+                      {/* Dot on Timeline */}
+                      <div className="absolute left-4 md:left-1/2 top-1/2 w-4 h-4 rounded-full bg-teal-400 border-4 border-white md:-translate-x-1/2 -translate-x-[7px] -translate-y-1/2 z-10 shadow-sm"></div>
+                      
+                      {/* Content Card */}
+                      <div className={`w-full md:w-1/2 ml-10 md:ml-0 bg-white p-8 md:p-10 rounded-[2rem] shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-teal-50/50 hover:shadow-[0_15px_50px_rgba(20,184,166,0.08)] transition-shadow duration-300 relative`}>
+                        <h4 className="text-teal-600 font-bold mb-6 text-xl">{persona.name}</h4>
+                        <ul className="space-y-4">
+                          {persona.points.map((point, i) => (
+                            <li key={i} className="flex items-start gap-4 text-slate-600 text-[15px] leading-relaxed">
+                              <span className="w-1.5 h-1.5 rounded-full bg-teal-400 mt-2 flex-shrink-0"></span>
+                              <span>{point}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
                     </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* WIREFRAME & PROTOTYPING */}
+          {study.wireframesIntro && (
+            <section className="py-24 px-4 bg-[#F8FAFC]">
+              <div className="container max-w-6xl mx-auto">
+                <h2 className="text-4xl font-bold mb-6 text-slate-900">Wireframe / Prototyping</h2>
+                <p className="text-slate-500 mb-16 max-w-3xl text-lg leading-relaxed">{study.wireframesIntro}</p>
+                
+                <div className="space-y-10">
+                  {/* Web Wireframe Placeholder */}
+                  <div className="relative w-full aspect-[16/9] md:aspect-[21/9] bg-white rounded-[2rem] overflow-hidden border border-slate-200/60 shadow-[0_8px_30px_rgba(0,0,0,0.03)] group">
+                    <div className="absolute inset-0 flex items-center justify-center text-slate-400 font-medium bg-slate-50 group-hover:bg-slate-100 transition-colors">
+                      Web Wireframe Image Placeholder
+                      {/* UNCOMMENT AND UPDATE src WHEN READY */}
+                      {/* <img src="/path/to/web-wireframe.png" alt="Web Wireframe" className="object-cover w-full h-full" /> */}
+                    </div>
+                  </div>
+                  
+                  {/* Mobile Wireframes Placeholders */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {[1, 2, 3].map((_, idx) => (
+                      <div key={idx} className="relative w-full aspect-[9/18] md:aspect-[9/19] bg-white rounded-[2rem] overflow-hidden border border-slate-200/60 shadow-[0_8px_30px_rgba(0,0,0,0.03)] group">
+                        <div className="absolute inset-0 flex items-center justify-center text-slate-400 font-medium text-sm text-center px-6 bg-slate-50 group-hover:bg-slate-100 transition-colors">
+                          Mobile Wireframe {idx + 1} Placeholder
+                          {/* UNCOMMENT AND UPDATE src WHEN READY */}
+                          {/* <img src={`/path/to/mobile-wireframe-${idx + 1}.png`} alt={`Mobile Wireframe ${idx + 1}`} className="object-cover w-full h-full" /> */}
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
             </section>
           )}
 
-          {/* FINAL RESULTS & METRICS */}
-          <section className="py-16 md:py-24 overflow-hidden relative">
-            <div className="container mx-auto px-6 relative z-10">
-              <div className="max-w-6xl mx-auto">
-                
-                {/* Metrics Banner */}
-                {study.metrics && (
-                  <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 rounded-3xl p-1 mb-20 shadow-2xl">
-                    <div className="bg-foreground dark:bg-background/95 backdrop-blur-xl rounded-[23px] p-8 md:p-12">
-                      <h2 className="text-3xl font-bold mb-10 text-center text-background dark:text-foreground">Impact & Results</h2>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-background/10 dark:divide-foreground/10">
-                        {study.metrics.map((metric, idx) => (
-                          <div key={idx} className="text-center pt-8 md:pt-0 md:px-4">
-                            <div className={`text-5xl md:text-6xl font-bold mb-3 ${metric.colorClass}`}>{metric.value}</div>
-                            <div className="text-background/80 dark:text-muted-foreground font-medium text-lg">{metric.label}</div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* Final Solution Images */}
-                <h2 className="font-display text-2xl md:text-4xl font-bold text-foreground mb-12 text-center">
-                  Final Product
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                  {study.galleryImages.map((img, idx) => (
-                    <div key={idx} className="rounded-2xl overflow-hidden shadow-xl border border-border">
-                      <img src={img} alt={`Final product ${idx+1}`} className="w-full h-auto hover:scale-105 transition-transform duration-700" />
-                    </div>
-                  ))}
-                </div>
-
-                {/* Final Features */}
-                {study.finalSolution && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {study.finalSolution.map((feature, idx) => (
-                      <div key={idx} className="bg-card border border-border p-6 rounded-2xl shadow-sm hover:shadow-md transition-all">
-                        <div className="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center mb-6">
-                          <div className="w-3 h-3 rounded-full bg-indigo-500"></div>
+          {/* FINAL UI DESIGN & IMPACT */}
+          <section className="py-24 px-4 bg-white border-t border-slate-100">
+            <div className="container max-w-6xl mx-auto">
+              {/* Final UI Design OR Gallery Images */}
+              {(study.galleryImages || study.uiFeatures) && (
+                <div className="mb-24">
+                  <h2 className="text-4xl font-bold mb-12 text-slate-900">Final UI Design</h2>
+                  
+                  {study.galleryImages && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                      {study.galleryImages.map((img, idx) => (
+                        <div key={idx} className="rounded-[2.5rem] overflow-hidden shadow-xl border border-slate-200">
+                          <img src={img} alt={`Final product ${idx+1}`} className="w-full h-auto hover:scale-105 transition-transform duration-700" />
                         </div>
-                        <h3 className="text-lg font-bold text-foreground mb-3">{feature.title}</h3>
-                        <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
-                      </div>
-                    ))}
-                  </div>
-                )}
+                      ))}
+                    </div>
+                  )}
 
-              </div>
+                  {study.uiFeatures && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      {study.uiFeatures.map((feature, idx) => (
+                        <div key={idx} className="bg-white rounded-[2.5rem] overflow-hidden border border-slate-100/80 shadow-[0_4px_20px_rgba(0,0,0,0.02)] flex flex-col hover:shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300">
+                          <div className="w-full aspect-[16/10] bg-slate-50 relative overflow-hidden group">
+                            <img src={feature.image} alt={feature.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                          </div>
+                          <div className="p-8 md:p-10 flex-grow flex flex-col justify-center">
+                            <h4 className="font-bold text-xl mb-4 text-slate-900 flex items-center gap-3">
+                              <span className="w-2 h-2 rounded-full bg-orange-500"></span>
+                              {feature.title}
+                            </h4>
+                            <p className="text-slate-500 leading-relaxed text-[15px]">{feature.description}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Results Banner */}
+              {study.metrics && (
+                <div className="bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 rounded-[2.5rem] p-1.5 shadow-2xl overflow-hidden relative">
+                  <div className="absolute inset-0 bg-black/5 opacity-10 mix-blend-overlay"></div>
+                  <div className="bg-white/10 backdrop-blur-md rounded-[2.2rem] py-16 px-8 relative z-10">
+                    <div className="text-center mb-12">
+                      <h3 className="text-white text-sm font-bold tracking-[0.2em] uppercase">Impact & Results</h3>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-white/20">
+                      {study.metrics.map((result, idx) => (
+                        <div key={idx} className="text-center pt-8 md:pt-0">
+                          <div className={`text-5xl md:text-6xl font-bold mb-4 drop-shadow-md ${result.color || 'text-white'}`}>{result.value}</div>
+                          <div className="text-white/90 font-medium text-lg tracking-wide">{result.label}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </section>
 
-          {/* CTA / Navigation */}
-          <section className="py-16 md:py-24 border-t border-border bg-foreground text-background text-center">
-            <div className="container mx-auto px-6">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Let's build something great together.</h2>
-              <p className="text-xl text-background/70 mb-10 max-w-2xl mx-auto">
-                Looking for a product designer to bring your idea to life? I'm currently available for new projects.
+          {/* THE SOLUTION */}
+          {study.solutions && (
+            <section className="py-24 px-4 bg-[#F8FAFC]">
+              <div className="container max-w-6xl mx-auto">
+                <h2 className="text-4xl font-bold mb-6 text-slate-900">The Solution</h2>
+                {study.solutionIntro && <p className="text-slate-500 mb-16 max-w-3xl text-lg leading-relaxed">{study.solutionIntro}</p>}
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {study.solutions.map((solution, idx) => (
+                    <div key={idx} className="bg-white p-10 rounded-[2rem] shadow-[0_4px_20px_rgba(0,0,0,0.02)] border border-slate-100 hover:shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300">
+                      <h4 className="text-xl font-bold mb-4 text-slate-900">{solution.title}</h4>
+                      <p className="text-slate-500 leading-relaxed text-[15px]">{solution.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* DESIGN SYSTEM / STYLE GUIDE */}
+          {study.styleGuide && (
+            <section className="py-24 px-4 bg-white border-y border-slate-100">
+              <div className="container max-w-6xl mx-auto">
+                <h2 className="text-4xl font-bold mb-6 text-slate-900">Style Guide <span className="font-medium text-slate-400 text-3xl">(Typography & Color Palette)</span></h2>
+                {study.designSystemIntro && <p className="text-slate-500 mb-20 max-w-3xl text-lg leading-relaxed">{study.designSystemIntro}</p>}
+
+                <div className="space-y-24">
+                  {/* Color Palette */}
+                  <div>
+                    <h3 className="text-2xl font-bold mb-8 text-slate-900">Color Palette</h3>
+                    <div className="flex flex-wrap gap-12">
+                      {study.styleGuide.colors.map((color, idx) => (
+                        <div key={idx} className="flex flex-col gap-4">
+                          <div className={`w-36 h-36 rounded-3xl shadow-md ${color.class}`}></div>
+                          <div>
+                            <div className="font-bold text-slate-900 text-lg mb-1">{color.name}</div>
+                            <div className="text-slate-500 text-sm uppercase tracking-wider font-mono">{color.hex}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Typography */}
+                  <div>
+                    <h3 className="text-2xl font-bold mb-8 text-slate-900">Typography</h3>
+                    <div className="bg-slate-50 p-12 rounded-[2.5rem] border border-slate-100 flex flex-col md:flex-row gap-16 items-start md:items-center">
+                      <div className="text-[120px] font-bold leading-none text-slate-900 -mt-6">Aa</div>
+                      <div className="space-y-6">
+                        <div className="flex flex-wrap items-end gap-8 text-3xl font-bold text-slate-900">
+                          <div>{study.styleGuide.typography.primary}</div>
+                          {study.styleGuide.typography.secondary?.map((font, idx) => (
+                            <div key={idx} className="text-slate-400 font-medium text-2xl">{font}</div>
+                          ))}
+                        </div>
+                        <div className="flex flex-wrap gap-3">
+                          {study.styleGuide.typography.weights.map((weight, idx) => (
+                            <span key={idx} className="px-5 py-2.5 bg-white rounded-full text-sm font-semibold text-slate-600 border border-slate-200/80 shadow-sm">
+                              {weight}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Accessibility */}
+                  <div>
+                    <h3 className="text-2xl font-bold mb-8 text-slate-900">Accessibility First</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      {study.styleGuide.accessibility.map((item, idx) => (
+                        <div key={idx} className="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 flex gap-5 hover:bg-slate-100/50 transition-colors">
+                          <div className="w-10 h-10 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center flex-shrink-0 font-bold text-lg">✓</div>
+                          <div>
+                            <h4 className="font-bold text-slate-900 mb-2 text-lg">{item.title}</h4>
+                            <p className="text-slate-500 text-[15px] leading-relaxed">{item.description}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* NEXT STEPS */}
+          {study.nextSteps && (
+            <section className="py-24 px-4 bg-[#F8FAFC]">
+              <div className="container max-w-6xl mx-auto">
+                <h2 className="text-3xl font-bold mb-12 text-slate-900 text-center">Next Steps</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {study.nextSteps.map((step, idx) => (
+                    <div key={idx} className="bg-white p-10 rounded-[2.5rem] shadow-[0_4px_20px_rgba(0,0,0,0.02)] border border-slate-100 text-center hover:-translate-y-2 transition-transform duration-300">
+                      <div className="w-14 h-14 rounded-full bg-pink-50 text-pink-500 flex items-center justify-center font-bold text-2xl mx-auto mb-8 shadow-sm">
+                        {idx + 1}
+                      </div>
+                      <h4 className="font-bold text-xl text-slate-900 mb-4">{step.title}</h4>
+                      <p className="text-slate-500 text-[15px] leading-relaxed">{step.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* CALL TO ACTION */}
+          <section className="py-24 px-4 bg-[#0A0B10] text-white">
+            <div className="container max-w-4xl mx-auto text-center">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Let&apos;s build something great together.</h2>
+              <p className="text-xl text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+                Looking for a product designer or developer to bring your idea to life? I&apos;m currently available for new projects.
               </p>
-              <Link to="/#contact" className="inline-flex items-center justify-center px-8 py-4 bg-background text-foreground hover:bg-background/90 font-bold rounded-xl transition-all duration-300 text-lg shadow-lg">
+              <Link to="/#contact" className="inline-flex items-center justify-center px-10 py-4 bg-white text-[#0A0B10] hover:bg-slate-200 font-bold rounded-full transition-all duration-300 text-lg shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]">
                 Get in Touch
               </Link>
             </div>
           </section>
+        </div>
+      </main>
 
-          {/* Prev / Next Links */}
-          <section className="py-8 border-t border-border bg-background">
-            <div className="container mx-auto px-6">
-              <div className="flex justify-between items-center max-w-6xl mx-auto">
-                {prevSlug ? (
-                  <Link
-                    to={`/case-studies/${prevSlug}`}
-                    className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group font-medium"
-                  >
-                    <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
-                    <span>Previous Project</span>
-                  </Link>
-                ) : <div />}
-                {nextSlug ? (
-                  <Link
-                    to={`/case-studies/${nextSlug}`}
-                    className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group font-medium"
-                  >
-                    <span>Next Project</span>
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                ) : <div />}
-              </div>
-            </div>
-          </section>
-
-        </main>
-        <Footer />
-      </div>
-    </>
+      <Footer />
+    </div>
   );
 };
 
