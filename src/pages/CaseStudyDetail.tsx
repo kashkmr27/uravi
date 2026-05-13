@@ -19,6 +19,7 @@ export type CaseStudy = {
   challenge?: {
     description: string;
     points: string[];
+    additionalDescription?: string;
   };
   results?: {
     description: string;
@@ -29,12 +30,12 @@ export type CaseStudy = {
   // Detailed sections (for the new, rich layout based on image)
   roleDetails?: Record<string, string>;
   challenges?: { title: string; description: string }[];
-  objectives?: { title: string; description: string }[];
+  objectives?: { title: string; description?: string; points?: string[] }[];
   targetAudience?: { title: string; description: string }[];
   personasIntro?: string;
   personas?: { name: string; points: string[] }[];
   wireframesIntro?: string;
-  wireframes?: { images: string[] };
+  wireframes?: { desktop?: string; mobile?: string[] };
   metrics?: { value: string; label: string; color?: string }[];
   solutionIntro?: string;
   solutions?: { title: string; description: string }[];
@@ -172,25 +173,49 @@ const caseStudiesData: Record<string, CaseStudy> = {
     year: "2024",
     link: "https://www.gmb.org.uk/",
     roleDetails: {
-      "Role": "UX / UI Designer",
-      "Role Type": "Part-time / Freelance base",
-      "Project": "Web & App Design",
-      "Duration": "3 Months",
-      "Start / End Date": "1 Jan, 2024 - Present"
+      "Role": "UX/UI Designer",
+      "Platform": "Responsive Web (Desktop + Mobile)",
+      "Duration": "6 months",
+      "Tools Used": "Figma, Photoshop, Illustrator, UserTesting"
     },
     overview: [
-      "GMB Union is one of the largest trade unions in the UK, representing over 500,000 members across various sectors. The project aimed to completely redesign their digital presence to better serve their members and attract new ones.",
-      "The redesign focused on improving accessibility, streamlining the user journey, and creating a modern, engaging experience that reflects GMB's values of solidarity and worker empowerment."
+      "The GMB Union is a UK-based trade union representing over 500,000 workers across industries, focused on improving pay, rights, and workplace conditions.",
+      "This project involved evaluating and redesigning the GMB website experience to improve user engagement, accessibility, and membership conversion."
     ],
+    challenge: {
+      description: "Despite a strong mission, the website suffers from UX issues that impact usability and conversion:",
+      points: [
+        "Overloaded homepage with competing content (news, campaigns, signup)",
+        "Weak visual hierarchy and unclear CTA prioritization",
+        "Complex navigation structure",
+        "Low emotional connection despite powerful mission",
+        "Users struggle to quickly understand \"Why join?\""
+      ],
+      additionalDescription: "Additionally, external feedback suggests communication and support clarity issues, reinforcing the need for better UX clarity."
+    },
     challenges: [
-      { title: "Complex Navigation", description: "The existing website had significant usability issues and outdated design patterns that were hindering member engagement and new sign-ups." },
-      { title: "Poor Mobile Experience", description: "A majority of the traffic comes from mobile devices, yet the previous design offered a subpar and frustrating mobile experience." },
-      { title: "Accessibility Issues", description: "The platform failed to meet modern accessibility standards, making it difficult for older or disabled members to use." },
-      { title: "Inconsistent Branding", description: "Different sections of the website lacked visual consistency, negatively impacting the brand's perception." }
+      { title: "Poor Navigation", description: "Members struggled to find relevant information quickly, leading to high bounce rates and support calls." },
+      { title: "Outdated Design", description: "The visual design felt dated and didn't reflect GMB's progressive values and modern approach." },
+      { title: "Mobile Experience", description: "The site wasn't optimized for mobile devices, despite 60% of traffic coming from mobile users." },
+      { title: "Accessibility Issues", description: "Limited accessibility features prevented some members from effectively using the website." }
     ],
     objectives: [
-      { title: "Improve Engagement", description: "Increase member engagement and simplify the process for new sign-ups." },
-      { title: "Streamline User Flow", description: "Simplify navigation and primary user paths, ensuring a frictionless and intuitive journey." }
+      {
+        title: "Secondary Goals",
+        points: [
+          "Strengthen trust and credibility",
+          "Improve engagement with campaigns and news",
+          "Enhance mobile usability"
+        ]
+      },
+      {
+        title: "Primary Goals",
+        points: [
+          "Increase membership sign-ups",
+          "Improve clarity of value proposition",
+          "Simplify navigation"
+        ]
+      }
     ],
     targetAudience: [
       { title: "Ages", description: "18-65+" },
@@ -233,6 +258,14 @@ const caseStudiesData: Record<string, CaseStudy> = {
       }
     ],
     wireframesIntro: "Following the research phase, I moved to wireframing and prototyping to visualize the core user flow and page layouts.",
+    wireframes: {
+      desktop: "/case-study/gmb/GMB-Union-desktop.png",
+      mobile: [
+        "/case-study/gmb/GMB-Union-mob-1.png",
+        "/case-study/gmb/GMB-Union-mob-2.png",
+        "/case-study/gmb/GMB-Union-mob-3.png"
+      ]
+    },
     uiFeatures: [
       { 
         image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop", 
@@ -246,9 +279,9 @@ const caseStudiesData: Record<string, CaseStudy> = {
       }
     ],
     metrics: [
-      { value: "40%", label: "increase in membership sign-ups", color: "text-white" },
-      { value: "65%", label: "improvement in mobile engagement", color: "text-white" },
-      { value: "AA", label: "accessibility compliance", color: "text-white" }
+      { value: "50%", label: "Reduction in bounce rate", color: "text-[#00B4A8]" },
+      { value: "3x", label: "Increase in mobile engagement", color: "text-slate-900" },
+      { value: "95%", label: "Accessibility score achieved", color: "text-[#FF5A00]" }
     ],
     solutionIntro: "To address the challenges identified during the research phase, I designed a solution that focused on streamlining the user experience, enhancing visual appeal, and improving overall engagement.",
     solutions: [
@@ -293,22 +326,28 @@ const caseStudiesData: Record<string, CaseStudy> = {
     year: "2023",
     link: "https://innov-8-2-create.eu/",
     roleDetails: {
-      "Role": "UX / UI Designer",
-      "Role Type": "Part-time / Freelance base",
-      "Project": "B2B SaaS",
-      "Duration": "3 Months",
-      "Start / End Date": "1 Jan, 2024 - Present"
+      "Role": "UX/UI Designer",
+      "Project Type": "Web Design & UX Optimization",
+      "Duration": "2 months",
+      "Tools Used": "Figma, Photoshop, Illustrator, UserTesting"
     },
     overview: [
-      "Innov-8-2-Create is a B2B SaaS platform designed for mid-sized & enterprise companies to bridge the gap in employee engagement, alignment, and wellness.",
-      "Currently, the platform struggles with a high bounce rate. The core user flow lacks intuition, leading to confusion among users. Additionally, the outdated visuals negatively impact brand perception.",
-      "Through this redesign, my primary objective was to tackle these pain points head-on. The goal is to design an interface that is not only visually striking but also deeply rooted in user-centric principles."
+      "Innov-8 is a digital platform designed to support innovators and startups with resources, collaboration tools, and knowledge sharing. The website needed to clearly communicate its mission, showcase its initiatives, and provide a user-friendly experience for multiple user types, all while reflecting a modern, innovative brand identity."
     ],
+    challenge: {
+      description: "As this was a brand-new website, the challenge wasn't fixing an existing site. it was defining the experience from scratch:",
+      points: [
+        "How to clearly communicate Innov-8's mission and services",
+        "Creating an intuitive information hierarchy for different user groups",
+        "Designing a visually appealing, brand-aligned interface",
+        "Ensuring mobile-first responsiveness"
+      ]
+    },
     challenges: [
-      { title: "High Bounce Rate", description: "Users are leaving the platform quickly due to confusion, indicating a disconnect between the initial impression and user expectations." },
-      { title: "Unintuitive User Flow", description: "The primary user flow is complex, causing friction and frustration. Users find it difficult to navigate seamlessly to key features." },
-      { title: "Outdated Visuals", description: "The platform's appearance lacks modern appeal, negatively impacting the brand's perception and failing to inspire user confidence." },
-      { title: "Decreased Engagement", description: "Combined issues lead to reduced user engagement, as users struggle to find value and perform tasks efficiently." }
+      { title: "Defining Clear User Paths", description: "Ensuring users could easily navigate to key pages like About, Projects, and Resources." },
+      { title: "Content Prioritization", description: "Organizing diverse content without overwhelming the user." },
+      { title: "Brand Translation", description: "Translating Innov-8's brand identity into a cohesive digital design." },
+      { title: "Responsive Design", description: "Creating layouts that work seamlessly across desktop, tablet, and mobile devices." }
     ],
     objectives: [
       { title: "Reduce Bounce Rate", description: "Implement strategies to capture and retain user attention, minimizing immediate platform abandonment." },
@@ -355,10 +394,18 @@ const caseStudiesData: Record<string, CaseStudy> = {
       }
     ],
     wireframesIntro: "Following the research phase, I moved to wireframing and prototyping to visualize the core user flow and page layouts.",
+    wireframes: {
+      desktop: "/case-study/innvo-2-create/innovate-2-create-desktop.png",
+      mobile: [
+        "/case-study/innvo-2-create/innov-2-create-mob-1.png",
+        "/case-study/innvo-2-create/Innov-8-2-Create-mob-2.png",
+        "/case-study/innvo-2-create/Innov-8-2-create-mob-3.png"
+      ]
+    },
     metrics: [
-      { value: "33%", label: "Decrease in Bounce Rate", color: "text-white" },
-      { value: "28%", label: "Increase in Engagement", color: "text-white" },
-      { value: "45%", label: "Growth in User Base", color: "text-white" }
+      { value: "33%", label: "Decrease in Bounce Rate", color: "text-[#00B4A8]" },
+      { value: "28%", label: "Increase in Engagement", color: "text-slate-900" },
+      { value: "45%", label: "Growth in User Base", color: "text-[#FF5A00]" }
     ],
     solutionIntro: "To address the challenges identified during the research phase, I designed a solution that focused on streamlining the user experience, enhancing visual appeal, and improving overall engagement.",
     solutions: [
@@ -571,13 +618,14 @@ const CaseStudyDetail = () => {
             <div className="container max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
               <div className="lg:col-span-4">
                 {study.roleDetails ? (
-                  <div className="bg-[#F0F4F8] rounded-[2rem] p-10 border border-slate-200/60 sticky top-32">
-                    <h3 className="text-2xl font-bold mb-8 text-slate-800">Role Details</h3>
-                    <div className="space-y-6">
+                  <div className="bg-[#F8FAFC] rounded-[2rem] p-10 sticky top-32">
+                    <h3 className="text-2xl font-bold mb-8 text-slate-800">Project Details</h3>
+                    <div className="space-y-5">
                       {Object.entries(study.roleDetails).map(([key, value]) => (
-                        <div key={key} className="border-b border-slate-200/80 pb-4 last:border-0 last:pb-0">
-                          <div className="text-sm font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">{key}</div>
-                          <div className="font-bold text-slate-800 text-lg">{value}</div>
+                        <div key={key} className="relative pl-4 py-0.5">
+                          <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#00B4A8] rounded-full"></div>
+                          <div className="text-[15px] font-bold text-slate-800 mb-1">{key}</div>
+                          <div className="text-slate-500 text-[15px]">{value}</div>
                         </div>
                       ))}
                     </div>
@@ -618,49 +666,71 @@ const CaseStudyDetail = () => {
             <section className="py-16 px-4">
               <div className="container max-w-6xl mx-auto space-y-16">
                 
+                {/* The Problem */}
+                {study.challenge && (
+                  <div className="mb-16">
+                    <h2 className="text-2xl font-bold mb-6 text-slate-900">The Problem</h2>
+                    <p className="text-slate-500 leading-relaxed text-[16px] mb-6">{study.challenge.description}</p>
+                    <ul className="list-disc pl-5 space-y-2 text-slate-500 text-[16px] mb-6">
+                      {study.challenge.points.map((point, idx) => (
+                        <li key={idx} className="leading-relaxed">{point}</li>
+                      ))}
+                    </ul>
+                    {study.challenge.additionalDescription && (
+                      <p className="text-slate-500 leading-relaxed text-[16px]">{study.challenge.additionalDescription}</p>
+                    )}
+                  </div>
+                )}
+                
                 {/* Key Challenges */}
-                {study.challenges ? (
+                {study.challenges && (
                   <div>
-                    <h2 className="text-3xl font-bold mb-8 text-slate-900">Key Challenges</h2>
+                    <h2 className="text-2xl font-bold mb-8 text-slate-900">Key Challenges</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {study.challenges.map((challenge, idx) => (
-                        <div key={idx} className="bg-white p-8 rounded-3xl shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-slate-100/80 flex gap-5 items-start transition-transform hover:-translate-y-1 duration-300">
-                          <div className="w-1.5 h-12 bg-gradient-to-b from-pink-400 to-rose-500 rounded-full flex-shrink-0 mt-1"></div>
-                          <div>
-                            <h4 className="font-bold text-xl mb-3 text-slate-900">{challenge.title}</h4>
-                            <p className="text-slate-500 leading-relaxed text-[15px]">{challenge.description}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ) : study.challenge && (
-                  <div>
-                    <h2 className="text-3xl font-bold mb-8 text-slate-900">The Challenge</h2>
-                    <p className="text-slate-600 leading-relaxed text-lg mb-8">{study.challenge.description}</p>
-                    <div className="grid grid-cols-1 gap-4">
-                      {study.challenge.points.map((point, idx) => (
-                        <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4">
-                          <div className="w-8 h-8 rounded-full bg-rose-100 text-rose-500 flex items-center justify-center font-bold text-sm flex-shrink-0">{idx + 1}</div>
-                          <p className="text-slate-700 font-medium">{point}</p>
+                        <div key={idx} className="bg-white p-6 md:p-8 rounded-[1rem] border border-slate-300 flex flex-col gap-2 transition-transform hover:-translate-y-1 duration-300">
+                          <h4 className="font-bold text-[16px] text-slate-900">{challenge.title}</h4>
+                          <p className="text-slate-500 leading-relaxed text-[15px]">{challenge.description}</p>
                         </div>
                       ))}
                     </div>
                   </div>
                 )}
 
-                {/* Core Objectives */}
+                {/* Goals & Objectives */}
                 {study.objectives && (
-                  <div>
-                    <h2 className="text-3xl font-bold mb-8 text-slate-900">Core Objectives</h2>
+                  <div className="pt-8 mt-16">
+                    <h2 className="text-2xl font-bold mb-8 text-slate-900">Goals & Objectives</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {study.objectives.map((obj, idx) => (
-                        <div key={idx} className="bg-white p-8 rounded-3xl shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-slate-100/80 flex gap-5 items-start transition-transform hover:-translate-y-1 duration-300">
-                          <div className="w-1.5 h-12 bg-gradient-to-b from-teal-400 to-emerald-500 rounded-full flex-shrink-0 mt-1"></div>
+                        <div key={idx} className="bg-[#F8FAFC] p-8 rounded-[1rem] flex gap-5 items-start">
+                          <div className="w-[3px] h-12 bg-[#00B4A8] rounded-full flex-shrink-0 mt-1"></div>
                           <div>
-                            <h4 className="font-bold text-xl mb-3 text-slate-900">{obj.title}</h4>
-                            <p className="text-slate-500 leading-relaxed text-[15px]">{obj.description}</p>
+                            <h4 className="font-bold text-[16px] mb-3 text-slate-900">{obj.title}</h4>
+                            {obj.description && <p className="text-slate-500 leading-relaxed text-[15px] mb-3">{obj.description}</p>}
+                            {obj.points && (
+                              <ul className="list-disc pl-4 space-y-2 text-slate-500 text-[15px]">
+                                {obj.points.map((point, i) => (
+                                  <li key={i}>{point}</li>
+                                ))}
+                              </ul>
+                            )}
                           </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Success Metrics */}
+                {study.metrics && (
+                  <div className="bg-[#F8FAFC] p-8 md:p-10 rounded-[1.5rem] mt-16">
+                    <h2 className="text-2xl font-bold mb-8 text-slate-900">Success Metrics</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-slate-200/60">
+                      {study.metrics.map((result, idx) => (
+                        <div key={idx} className="pt-6 md:pt-0 md:px-8 first:px-0 first:pt-0">
+                          <div className={`text-4xl md:text-[40px] font-medium mb-3 ${result.color || 'text-slate-900'}`}>{result.value}</div>
+                          <div className="text-slate-500 text-[16px]">{result.label}</div>
                         </div>
                       ))}
                     </div>
@@ -731,24 +801,28 @@ const CaseStudyDetail = () => {
                 <p className="text-slate-500 mb-16 max-w-3xl text-lg leading-relaxed">{study.wireframesIntro}</p>
                 
                 <div className="space-y-10">
-                  {/* Web Wireframe Placeholder */}
-                  <div className="relative w-full aspect-[16/9] md:aspect-[21/9] bg-white rounded-[2rem] overflow-hidden border border-slate-200/60 shadow-[0_8px_30px_rgba(0,0,0,0.03)] group">
-                    <div className="absolute inset-0 flex items-center justify-center text-slate-400 font-medium bg-slate-50 group-hover:bg-slate-100 transition-colors">
-                      Web Wireframe Image Placeholder
-                      {/* UNCOMMENT AND UPDATE src WHEN READY */}
-                      {/* <img src="/path/to/web-wireframe.png" alt="Web Wireframe" className="object-cover w-full h-full" /> */}
-                    </div>
+                  {/* Web Wireframe */}
+                  <div className="w-full bg-white rounded-[2rem] overflow-hidden border border-slate-200/60 shadow-[0_8px_30px_rgba(0,0,0,0.03)] group flex">
+                    {study.wireframes?.desktop ? (
+                      <img src={study.wireframes.desktop} alt="Web Wireframe" className="w-full h-auto object-cover" />
+                    ) : (
+                      <div className="w-full aspect-[16/9] md:aspect-[21/9] flex items-center justify-center text-slate-400 font-medium bg-slate-50 group-hover:bg-slate-100 transition-colors">
+                        Web Wireframe Image Placeholder
+                      </div>
+                    )}
                   </div>
                   
-                  {/* Mobile Wireframes Placeholders */}
+                  {/* Mobile Wireframes */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {[1, 2, 3].map((_, idx) => (
-                      <div key={idx} className="relative w-full aspect-[9/18] md:aspect-[9/19] bg-white rounded-[2rem] overflow-hidden border border-slate-200/60 shadow-[0_8px_30px_rgba(0,0,0,0.03)] group">
-                        <div className="absolute inset-0 flex items-center justify-center text-slate-400 font-medium text-sm text-center px-6 bg-slate-50 group-hover:bg-slate-100 transition-colors">
-                          Mobile Wireframe {idx + 1} Placeholder
-                          {/* UNCOMMENT AND UPDATE src WHEN READY */}
-                          {/* <img src={`/path/to/mobile-wireframe-${idx + 1}.png`} alt={`Mobile Wireframe ${idx + 1}`} className="object-cover w-full h-full" /> */}
-                        </div>
+                    {(study.wireframes?.mobile || [1, 2, 3]).map((img, idx) => (
+                      <div key={idx} className="w-full bg-white rounded-[2rem] overflow-hidden border border-slate-200/60 shadow-[0_8px_30px_rgba(0,0,0,0.03)] group flex">
+                        {typeof img === 'string' ? (
+                          <img src={img} alt={`Mobile Wireframe ${idx + 1}`} className="w-full h-auto object-cover" />
+                        ) : (
+                          <div className="w-full aspect-[9/18] md:aspect-[9/19] flex items-center justify-center text-slate-400 font-medium text-sm text-center px-6 bg-slate-50 group-hover:bg-slate-100 transition-colors">
+                            Mobile Wireframe {idx + 1} Placeholder
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -796,25 +870,7 @@ const CaseStudyDetail = () => {
                 </div>
               )}
 
-              {/* Results Banner */}
-              {study.metrics && (
-                <div className="bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 rounded-[2.5rem] p-1.5 shadow-2xl overflow-hidden relative">
-                  <div className="absolute inset-0 bg-black/5 opacity-10 mix-blend-overlay"></div>
-                  <div className="bg-white/10 backdrop-blur-md rounded-[2.2rem] py-16 px-8 relative z-10">
-                    <div className="text-center mb-12">
-                      <h3 className="text-white text-sm font-bold tracking-[0.2em] uppercase">Impact & Results</h3>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-white/20">
-                      {study.metrics.map((result, idx) => (
-                        <div key={idx} className="text-center pt-8 md:pt-0">
-                          <div className={`text-5xl md:text-6xl font-bold mb-4 drop-shadow-md ${result.color || 'text-white'}`}>{result.value}</div>
-                          <div className="text-white/90 font-medium text-lg tracking-wide">{result.label}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
+              {/* Old Results Banner Removed in favor of standardized Success Metrics layout */}
             </div>
           </section>
 
