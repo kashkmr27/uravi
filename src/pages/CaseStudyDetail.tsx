@@ -438,110 +438,455 @@ const caseStudiesData: Record<string, CaseStudy> = {
       { title: "Continuous Iteration", description: "Regularly review analytics and user feedback to continuously improve the platform's performance and user experience." }
     ]
   },
-  "climate-jobs": {
-    title: "Climate Jobs",
-    subtitle: "Connecting workers with sustainable career paths",
-    service: "Web Design",
-    category: "Platform",
-    year: "2023",
-    link: "https://climatejobs.org.uk/",
-    heroImage: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1600&h=900&fit=crop",
+  "alpine": {
+    title: "Alpine",
+    heroText: {
+      part1: "Driving digital transformation for construction - ",
+      part2: "Alpine"
+    },
+    subtitle: "Alpine is a leading international infrastructure group. They finance, develop, build and maintain complex infrastructure such as transportation, power and utility systems, social and commercial buildings.",
+    service: "UX/UI Design",
+    category: "Platform Redesign",
+    year: "2024",
+    link: "#",
+    roleDetails: {
+      "Role": "UX/UI Designer",
+      "Project Type": "Platform Redesign",
+      "Duration": "4 months",
+      "Tools Used": "Figma, Sketch, InVision, UserTesting"
+    },
     overview: [
-      "Climate Jobs is a UK initiative promoting green employment opportunities and climate action. The platform connects workers with sustainable career paths in the growing green economy.",
-      "The project aimed to create an engaging, informative platform that educates visitors about green jobs while providing practical resources for career transition."
+      "Alpine needed to modernize their internal project management and reporting platform. The existing system was outdated, fragmented, and difficult for on-site managers to use effectively.",
+      "The primary goal was to create a unified, intuitive dashboard that would streamline data entry, improve real-time reporting, and enhance overall efficiency for project teams."
     ],
     challenge: {
-      description: "Making complex climate and employment data accessible and actionable for diverse audiences.",
+      description: "The existing internal platform was slowing down operations and causing frustration among users:",
       points: [
-        "Communicating complex policy information",
-        "Engaging younger job seekers",
-        "Building trust with trade union members",
-        "Showcasing regional job opportunities"
+        "Clunky, outdated interface that required extensive training",
+        "Data silos and fragmented reporting tools",
+        "Poor mobile experience for on-site workers",
+        "High error rates in data entry due to confusing forms"
       ]
     },
-    results: {
-      description: "The platform has become a key resource for green job information in the UK.",
+    challenges: [
+      { title: "Complex Data Visualization", description: "Translating dense project data into easily digestible, actionable insights." },
+      { title: "Legacy System Integration", description: "Designing an interface that works seamlessly with their existing backend infrastructure." },
+      { title: "User Adoption", description: "Overcoming resistance to change from users accustomed to the old system." },
+      { title: "On-site Usability", description: "Ensuring the platform is fully functional and easy to use on mobile devices in challenging environments." }
+    ],
+    objectives: [
+      {
+        title: "Secondary Goals",
+        points: ["Improve data accuracy", "Reduce training time for new employees", "Enhance cross-team collaboration"]
+      },
+      {
+        title: "Primary Goals",
+        points: ["Increase platform adoption rate", "Streamline reporting processes", "Deliver a mobile-first experience"]
+      }
+    ],
+    targetAudience: [
+      { title: "Ages", description: "30-55" },
+      { title: "Professionals", description: "Project Managers, Site Engineers, Operations Directors responsible for overseeing construction projects and operations." },
+      { title: "Tech Fluency", description: "Ranging from highly tech-savvy office staff to field workers with basic digital skills." }
+    ],
+    personasIntro: "Alpine caters to a diverse user base, primarily targeting construction professionals.",
+    personas: [
+      {
+        name: "John (Site Manager), 45",
+        points: [
+          "Needs to quickly log updates from the field.",
+          "Frustrated by slow, unresponsive mobile tools.",
+          "Wants a simple, clear interface without distractions."
+        ]
+      },
+      {
+        name: "Sarah (Operations Director), 50",
+        points: [
+          "Requires high-level overviews of multiple projects.",
+          "Needs accurate, real-time data for decision making.",
+          "Values customizable dashboards and reporting."
+        ]
+      }
+    ],
+    metrics: [
+      { value: "45%", label: "Increase in user adoption", color: "text-[#00703C]" },
+      { value: "30%", label: "Reduction in reporting time", color: "text-slate-900" },
+      { value: "60%", label: "Decrease in data entry errors", color: "text-[#005A32]" }
+    ],
+    styleGuide: {
+      colors: [
+        { name: "Primary", hex: "#00703C", class: "bg-[#00703C]" },
+        { name: "Secondary", hex: "#005A32", class: "bg-[#005A32]" }
+      ],
+      typography: {
+        primary: "Inter",
+        secondary: ["Roboto", "Outfit"],
+        weights: ["Light", "Regular", "Medium", "Semi Bold", "Bold"]
+      },
+      accessibility: [
+        { title: "High Contrast Colors", description: "Ensuring all text and UI elements meet WCAG contrast guidelines for optimal readability." },
+        { title: "Clear Navigation", description: "Implementing straightforward and intuitive navigation paths to help users find information easily." }
+      ]
+    }
+  },
+  "tiny-vision": {
+    title: "Tiny-Vision",
+    heroText: {
+      part1: "Support in building responsive & optimized ",
+      part2: "landing pages - Tiny-Vision"
+    },
+    subtitle: "Tiny-Vision is a digital agency that specializes in creating high-performing landing pages for e-commerce brands. They needed a streamlined way to showcase their work and attract new clients.",
+    service: "Web Designer",
+    category: "Website Redesign",
+    year: "2024",
+    link: "#",
+    roleDetails: {
+      "Role": "Web Designer",
+      "Project Type": "Website Redesign",
+      "Duration": "6 weeks",
+      "Tools Used": "Webflow, Figma, Adobe XD"
+    },
+    overview: [
+      "Tiny-Vision required a modern, fast, and highly converting portfolio website. Their previous site was slow, difficult to update, and didn't effectively highlight their case studies.",
+      "The objective was to design and develop a responsive website that not only looks great but also performs exceptionally well in terms of speed and SEO."
+    ],
+    challenge: {
+      description: "The old website was holding the agency back from acquiring high-value clients:",
       points: [
-        "100,000+ monthly visitors",
-        "Featured in major UK publications",
-        "Partnership with 20+ organizations",
-        "Comprehensive green jobs database"
+        "Slow page load times impacting SEO and user experience",
+        "Difficult CMS making case study updates a chore",
+        "Lack of clear calls-to-action (CTAs)",
+        "Non-responsive design that looked poor on mobile"
       ]
     },
-    galleryImages: [
-      "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop"
-    ]
+    challenges: [
+      { title: "Performance Optimization", description: "Achieving top scores on Google PageSpeed Insights." },
+      { title: "Visual Impact", description: "Creating a design that stands out in a crowded agency market." },
+      { title: "CMS Setup", description: "Building an intuitive backend for easy content management." },
+      { title: "Conversion Rate", description: "Strategically placing CTAs to maximize lead generation." }
+    ],
+    objectives: [
+      {
+        title: "Secondary Goals",
+        points: ["Improve SEO rankings", "Enhance brand perception"]
+      },
+      {
+        title: "Primary Goals",
+        points: ["Increase lead generation", "Reduce bounce rate", "Simplify content updates"]
+      }
+    ],
+    targetAudience: [
+      { title: "Ages", description: "25-50" },
+      { title: "Professionals", description: "E-commerce Founders, Marketing Directors looking to scale their online businesses." },
+      { title: "Focus", description: "Results-Oriented: Focused on ROI and measurable improvements." }
+    ],
+    personasIntro: "Tiny-Vision targets high-growth e-commerce founders and marketing directors.",
+    personas: [
+      {
+        name: "Mark (E-commerce Founder), 35",
+        points: [
+          "Looking for an agency to boost his store's conversion rate.",
+          "Values case studies and proven results.",
+          "Needs a fast, reliable partner."
+        ]
+      },
+      {
+        name: "Lisa (Marketing Director), 42",
+        points: [
+          "Seeking a team to handle landing page creation for upcoming campaigns.",
+          "Wants a seamless process and clear communication."
+        ]
+      }
+    ],
+    metrics: [
+      { value: "50%", label: "Increase in lead generation", color: "text-[#FF5A00]" },
+      { value: "2x", label: "Faster page load times", color: "text-slate-900" },
+      { value: "40%", label: "Reduction in bounce rate", color: "text-[#000000]" }
+    ],
+    styleGuide: {
+      colors: [
+        { name: "Primary", hex: "#FF5A00", class: "bg-[#FF5A00]" },
+        { name: "Secondary", hex: "#000000", class: "bg-[#000000]" }
+      ],
+      typography: {
+        primary: "Roboto",
+        secondary: ["Inter", "Outfit"],
+        weights: ["Light", "Regular", "Medium", "Semi Bold", "Bold"]
+      },
+      accessibility: [
+        { title: "High Contrast Colors", description: "Ensuring all text and UI elements meet WCAG contrast guidelines for optimal readability." },
+        { title: "Clear Navigation", description: "Implementing straightforward and intuitive navigation paths to help users find information easily." }
+      ]
+    }
+  },
+  "climate-jobs": {
+    title: "Climate Jobs",
+    heroText: {
+      part1: "Empowering workers for a sustainable future - ",
+      part2: "Climate Jobs"
+    },
+    subtitle: "Climate Jobs is a UK initiative promoting green employment opportunities and climate action. The platform connects workers with sustainable career paths in the growing green economy.",
+    service: "UX/UI Design",
+    category: "Web Design",
+    year: "2023",
+    link: "https://climatejobs.org.uk/",
+    roleDetails: {
+      "Role": "UX/UI Designer",
+      "Project Type": "Web Design & UX Optimization",
+      "Duration": "3 months",
+      "Tools Used": "Figma, Sketch, InVision, UserTesting"
+    },
+    overview: [
+      "Climate Jobs needed a platform to connect job seekers with sustainable career opportunities. The existing resources were fragmented and difficult to navigate, hindering the transition to a green economy.",
+      "The primary goal was to create a centralized, user-friendly job board and resource hub that simplifies the search for climate-positive careers and provides educational materials for upskilling."
+    ],
+    challenge: {
+      description: "The previous digital landscape for green jobs was holding back the movement:",
+      points: [
+        "Fragmented job listings across multiple generic platforms",
+        "Lack of clear pathways for transitioning into green careers",
+        "Poor mobile experience for job seekers on the go",
+        "Inconsistent information about required skills and qualifications"
+      ]
+    },
+    challenges: [
+      { title: "Data Aggregation", description: "Creating a system to pull and organize job listings from various sources." },
+      { title: "User Guidance", description: "Designing intuitive career pathways for users transitioning from traditional industries." },
+      { title: "Brand Trust", description: "Establishing a credible and authoritative platform in a new sector." },
+      { title: "Accessibility", description: "Ensuring the platform is usable by people with diverse technical backgrounds." }
+    ],
+    objectives: [
+      {
+        title: "Secondary Goals",
+        points: ["Increase newsletter sign-ups", "Grow the employer network"]
+      },
+      {
+        title: "Primary Goals",
+        points: ["Boost job applications", "Increase user retention", "Simplify career mapping"]
+      }
+    ],
+    targetAudience: [
+      { title: "Ages", description: "22-50" },
+      { title: "Job Seekers", description: "Job Seekers, Career Changers, Employers looking for meaningful work and companies hiring for green roles." },
+      { title: "Values", description: "Values-Driven: Motivated by environmental impact as well as career progression." }
+    ],
+    personasIntro: "Climate Jobs serves a broad audience looking to make a positive impact.",
+    personas: [
+      {
+        name: "David (Recent Graduate), 24",
+        points: [
+          "Looking for his first role in renewable energy.",
+          "Needs clear information on entry-level requirements and career progression."
+        ]
+      },
+      {
+        name: "Emma (Transitioning Professional), 38",
+        points: [
+          "Wants to move from oil & gas to a green industry.",
+          "Needs guidance on transferring her skills and finding relevant opportunities."
+        ]
+      }
+    ],
+    metrics: [
+      { value: "40%", label: "Increase in job applications", color: "text-[#10B981]" },
+      { value: "25%", label: "Growth in employer sign-ups", color: "text-slate-900" },
+      { value: "55%", label: "Improvement in mobile engagement", color: "text-[#047857]" }
+    ],
+    styleGuide: {
+      colors: [
+        { name: "Primary", hex: "#10B981", class: "bg-[#10B981]" },
+        { name: "Secondary", hex: "#047857", class: "bg-[#047857]" }
+      ],
+      typography: {
+        primary: "Inter",
+        secondary: ["Roboto", "Outfit"],
+        weights: ["Light", "Regular", "Medium", "Semi Bold", "Bold"]
+      },
+      accessibility: [
+        { title: "High Contrast Colors", description: "Ensuring all text and UI elements meet WCAG contrast guidelines for optimal readability." },
+        { title: "Clear Navigation", description: "Implementing straightforward and intuitive navigation paths to help users find information easily." }
+      ]
+    }
   },
   "act-for-change": {
     title: "Act for Change",
-    subtitle: "Empowering communities through advocacy",
-    service: "UI Design",
-    category: "Branding",
+    heroText: {
+      part1: "Amplifying voices for environmental justice - ",
+      part2: "Act for Change"
+    },
+    subtitle: "Act for Change is an advocacy platform empowering communities to take action on social and environmental issues. The project involved creating a compelling digital presence that inspires action.",
+    service: "UX/UI Design",
+    category: "Platform Redesign",
     year: "2022",
     link: "https://actforchange.org.uk/",
-    heroImage: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1600&h=900&fit=crop",
+    roleDetails: {
+      "Role": "UX/UI Designer",
+      "Project Type": "Platform Redesign",
+      "Duration": "2 months",
+      "Tools Used": "Figma, Photoshop, Illustrator, UserTesting"
+    },
     overview: [
-      "Act for Change is an advocacy platform empowering communities to take action on social and environmental issues. The project involved creating a compelling digital presence that inspires action.",
-      "The design focused on storytelling, making it easy for visitors to understand issues and take meaningful action through campaigns and events."
+      "Act for Change required a complete website overhaul to better showcase their campaigns, streamline volunteer onboarding, and increase donations. The old site was visually outdated and lacked clear calls-to-action."
     ],
     challenge: {
-      description: "Creating an emotionally engaging platform that motivates action while maintaining credibility.",
+      description: "The old website was failing to convert visitors into active participants:",
       points: [
-        "Balancing urgency with hope",
-        "Making campaign participation easy",
-        "Building community engagement",
-        "Measuring impact effectively"
+        "Confusing navigation making it hard to find active campaigns",
+        "Lengthy and complicated volunteer sign-up forms",
+        "Lack of emotional resonance in the visual design",
+        "Poor integration with donation platforms"
       ]
     },
-    results: {
-      description: "The platform has successfully mobilized communities across multiple campaigns.",
-      points: [
-        "50,000+ campaign participants",
-        "Strong social media presence",
-        "Regular community events",
-        "Measurable policy impact"
+    challenges: [
+      { title: "Storytelling", description: "Weaving compelling narratives around complex environmental issues to drive engagement." },
+      { title: "Conversion Optimization", description: "Streamlining the donation and volunteer sign-up flows." },
+      { title: "Visual Impact", description: "Creating a design that is urgent yet hopeful, avoiding \"doom and gloom\"." },
+      { title: "Campaign Management", description: "Designing a flexible system for the team to quickly launch and update campaigns." }
+    ],
+    objectives: [
+      {
+        title: "Secondary Goals",
+        points: ["Increase newsletter subscribers", "Boost social media shares"]
+      },
+      {
+        title: "Primary Goals",
+        points: ["Increase donation volume", "Grow the volunteer base", "Improve campaign participation"]
+      }
+    ],
+    targetAudience: [
+      { title: "Ages", description: "18-45" },
+      { title: "Audience", description: "Activists, Students, Concerned Citizens passionate about social and environmental justice." },
+      { title: "Engagement", description: "Highly Engaged: Users who want to make a tangible difference and are likely to share content." }
+    ],
+    personasIntro: "Act for Change targets a passionate and active demographic.",
+    personas: [
+      {
+        name: "Maya (Student Activist), 20",
+        points: [
+          "Wants to find local protests and volunteer opportunities.",
+          "Needs a mobile-friendly site for quick updates.",
+          "Values clear, shareable information."
+        ]
+      },
+      {
+        name: "Robert (Regular Donor), 45",
+        points: [
+          "Wants to see the impact of his contributions.",
+          "Needs a simple, secure donation process.",
+          "Values transparency and accountability."
+        ]
+      }
+    ],
+    metrics: [
+      { value: "50%", label: "Increase in donation volume", color: "text-[#DC2626]" },
+      { value: "30%", label: "Growth in volunteer sign-ups", color: "text-slate-900" },
+      { value: "40%", label: "Improvement in campaign participation", color: "text-[#991B1B]" }
+    ],
+    styleGuide: {
+      colors: [
+        { name: "Primary", hex: "#DC2626", class: "bg-[#DC2626]" },
+        { name: "Secondary", hex: "#991B1B", class: "bg-[#991B1B]" }
+      ],
+      typography: {
+        primary: "Inter",
+        secondary: ["Roboto", "Outfit"],
+        weights: ["Light", "Regular", "Medium", "Semi Bold", "Bold"]
+      },
+      accessibility: [
+        { title: "High Contrast Colors", description: "Ensuring all text and UI elements meet WCAG contrast guidelines for optimal readability." },
+        { title: "Clear Navigation", description: "Implementing straightforward and intuitive navigation paths to help users find information easily." }
       ]
-    },
-    galleryImages: [
-      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop"
-    ]
+    }
   },
   "astp4kt": {
-    title: "ASTP4KT",
-    subtitle: "Accelerating European knowledge transfer",
-    service: "UX Research",
-    category: "Platform",
-    year: "2022",
+    title: "ASTP",
+    heroText: {
+      part1: "Support in building responsive & optimized ",
+      part2: "landing pages - ASTP"
+    },
+    subtitle: "ASTP is the premier pan-European association for professionals involved in knowledge transfer among universities and industry.",
+    service: "UX/UI Design",
+    category: "Web Design & UX Optimization",
+    year: "2024",
     link: "https://astp4kt.eu/",
-    heroImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&h=900&fit=crop",
+    roleDetails: {
+      "Role": "UX/UI Designer",
+      "Project Type": "Web Design & UX Optimization",
+      "Duration": "3 months",
+      "Tools Used": "Figma, Photoshop, Illustrator, UserTesting"
+    },
     overview: [
-      "ASTP4KT is a European knowledge transfer platform connecting researchers, innovators, and industry professionals. The platform facilitates technology transfer and commercialization of research.",
-      "The UX research project focused on understanding user needs and optimizing the platform for effective knowledge exchange."
+      "ASTP required a website overhaul to better serve its members, streamline event registrations, and improve resource accessibility. The old site was difficult to navigate and did not effectively communicate the value of membership."
     ],
     challenge: {
-      description: "Understanding and serving the complex needs of diverse stakeholders in the knowledge transfer ecosystem.",
+      description: "The previous website failed to engage users and made it difficult to find critical information:",
       points: [
-        "Complex user journeys",
-        "Technical content accessibility",
-        "Cross-border collaboration needs",
-        "Legacy system constraints"
+        "Confusing navigation and poor information architecture",
+        "Cumbersome event registration process",
+        "Outdated aesthetic that didn't reflect their professional standing",
+        "Resources and publications were hard to discover"
       ]
     },
-    results: {
-      description: "Research insights led to significant platform improvements and increased user engagement.",
-      points: [
-        "35% increase in user engagement",
-        "Streamlined user journeys",
-        "Improved content discovery",
-        "Enhanced collaboration tools"
+    challenges: [
+      { title: "Resource Organization", description: "Categorizing a vast library of documents and publications for easy retrieval." },
+      { title: "Membership Portal", description: "Creating a seamless experience for members to access exclusive content and manage their profiles." },
+      { title: "Event Management", description: "Designing an intuitive system for browsing and registering for conferences and training courses." },
+      { title: "Global Audience", description: "Ensuring the site caters to a diverse European audience with varying linguistic and cultural backgrounds." }
+    ],
+    objectives: [
+      {
+        title: "Secondary Goals",
+        points: ["Increase resource downloads", "Improve newsletter sign-ups", "Enhance mobile usability"]
+      },
+      {
+        title: "Primary Goals",
+        points: ["Boost event registrations", "Increase membership renewals", "Simplify resource discovery"]
+      }
+    ],
+    targetAudience: [
+      { title: "Ages", description: "28-60" },
+      { title: "Professionals", description: "Knowledge Transfer Professionals, Researchers, Policy Makers involved in commercializing academic research." },
+      { title: "Tech Fluency", description: "Highly Educated: Users expect a professional, authoritative, and efficient digital experience." }
+    ],
+    personasIntro: "ASTP caters to a diverse European audience with varying linguistic and cultural backgrounds.",
+    personas: [
+      {
+        name: "Maria (Technology Transfer Officer), 38",
+        points: [
+          "Needs to quickly find templates and best practice guides.",
+          "Frustrated by the current search functionality.",
+          "Wants to easily connect with peers across Europe."
+        ]
+      },
+      {
+        name: "Dr. Schmidt (Senior Researcher), 52",
+        points: [
+          "Looking for upcoming training events to expand his skills.",
+          "Needs a simple registration process.",
+          "Values clear, professional communication."
+        ]
+      }
+    ],
+    metrics: [
+      { value: "40%", label: "Increase in event registrations", color: "text-[#4338CA]" },
+      { value: "25%", label: "Growth in resource downloads", color: "text-slate-900" },
+      { value: "55%", label: "Improvement in mobile engagement", color: "text-[#00B4A8]" }
+    ],
+    styleGuide: {
+      colors: [
+        { name: "Primary", hex: "#4338CA", class: "bg-[#4338CA]" },
+        { name: "Secondary", hex: "#00B4A8", class: "bg-[#00B4A8]" }
+      ],
+      typography: {
+        primary: "Outfit",
+        secondary: ["Inter", "Roboto"],
+        weights: ["Light", "Regular", "Medium", "Semi Bold", "Bold"]
+      },
+      accessibility: [
+        { title: "High Contrast Colors", description: "Ensuring all text and UI elements meet WCAG contrast guidelines for optimal readability." },
+        { title: "Clear Navigation", description: "Implementing straightforward and intuitive navigation paths to help users find information easily." }
       ]
-    },
-    galleryImages: [
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=600&fit=crop"
-    ]
+    }
   }
 };
 
