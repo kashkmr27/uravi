@@ -4,8 +4,8 @@ import profileAvatar from '@/assets/profile-avatar.png';
 const HeroSection = () => {
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = `${import.meta.env.BASE_URL}Uravi_Sharma_CV_.pdf`;
-    link.download = 'Uravi_Sharma_CV_.pdf';
+    link.href = `${import.meta.env.BASE_URL}Uravi_Sharma_CV.pdf`;
+    link.download = 'Uravi_Sharma_CV.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -16,20 +16,26 @@ const HeroSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 auto-rows-auto">
 
         {/* About Card - Left */}
-        <div className="md:col-span-3 bento-card  flex flex-col justify-between min-h-[280px] opacity-0 animate-fade-in" style={{
+        <div className="md:col-span-3 bento-card flex flex-col justify-between min-h-[320px] md:min-h-[360px] bg-[#1E1E2A] border-white/5 px-6 py-7 md:px-6 md:py-7 opacity-0 animate-fade-in" style={{
           animationDelay: '0.1s'
         }}>
           <div>
-            <div className="w-12 h-12 flex items-center justify-center mb-6">
-              <img src="/logo.png" alt="Logo" className="w-12 h-12" />
+            <div className="w-14 h-14 flex items-center justify-center mb-9">
+              <img src="/logo.png" alt="Logo" className="w-14 h-14" />
             </div>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              "I'm Uravi, a digital designer blending creativity and usability to craft designs people love — just ask my <span className="text-accent font-medium">mom</span> and <span className="text-accent font-medium">son</span>!"
-            </p>
+            <div className="space-y-8">
+              <div className="text-[1rem] leading-[1.24] tracking-[-0.03em] text-[#D9D5F6] font-normal">
+                &quot;I&apos;m Uravi, a digital designer blending creativity and usability to craft designs people love  just ask my <span className="text-[#FF7A45] font-semibold">mom</span> and <span className="text-[#FF7A45] font-semibold">son</span>!&quot;
+              </div>
+
+              <p className="text-[1rem] leading-[1.24] tracking-[-0.03em] text-[#D9D5F6]">
+                I create conversion-focused e-commerce store, website design, landing pages, dashboards, web apps, mobile apps, logos, and social posts for ecommerce and service businesses.
+              </p>
+            </div>
           </div>
-          <a href="#about" className="inline-flex items-center gap-2 text-accent hover:text-accent-glow transition-colors mt-6 group">
-            <span className="text-sm font-medium">About me</span>
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          <a href="#about" className="inline-flex items-center gap-3 text-[#D9D5F6] hover:text-white transition-colors mt-8 group">
+            <span className="text-[1.35rem] md:text-[1.5rem] font-semibold tracking-[-0.03em]">About me</span>
+            <ArrowRight size={30} strokeWidth={2.4} className="text-[#FF7A45] group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
 
@@ -151,25 +157,48 @@ const HeroSection = () => {
         </div>
 
         {/* Stats Card */}
-        <div className="md:col-span-3 bento-card  min-h-[180px] opacity-0 animate-fade-in" style={{
+        <div className="md:col-span-3 bento-card min-h-[240px] md:min-h-[280px] bg-[#1E1E2A] border-white/5 px-5 py-6 md:px-5 md:py-6 opacity-0 animate-fade-in" style={{
           animationDelay: '0.8s'
         }}>
-          <div className="grid grid-cols-2 gap-4 h-full">
-            <div className="flex flex-col justify-center">
-              <span className="stat-number text-accent">7+</span>
-              <span className="text-muted-foreground text-xs">Years of Experience</span>
+          <div className="grid grid-cols-2 gap-x-6 gap-y-8 h-full">
+            <div className="flex flex-col justify-start">
+              <div className="text-[2.35rem] md:text-[2.7rem] leading-none tracking-[-0.06em] font-semibold text-[#E1DEFF]">
+                7<span className="text-[#FF7A45]">+</span>
+              </div>
+              <div className="mt-2.5 text-[0.8rem] md:text-[0.9rem] leading-[1.28] tracking-[-0.03em] text-[#A99BEA]">
+                Years of work
+                <br />
+                experience
+              </div>
             </div>
-            <div className="flex flex-col justify-center">
-              <span className="stat-number text-foreground">00</span>
-              <span className="text-muted-foreground text-xs">Unhappy Clients</span>
+
+            <div className="flex flex-col justify-start">
+              <div className="text-[2.35rem] md:text-[2.7rem] leading-none tracking-[-0.06em] font-semibold text-[#E1DEFF]">
+                98<span className="text-[#FF7A45]">%</span>
+              </div>
+              <div className="mt-2.5 text-[0.8rem] md:text-[0.9rem] leading-[1.28] tracking-[-0.03em] text-[#A99BEA]">
+                Satisfied happy
+                <br />
+                customers
+              </div>
             </div>
-            <div className="flex flex-col justify-center">
-              <span className="stat-number text-foreground">08</span>
-              <span className="text-muted-foreground text-xs">Recognitions</span>
+
+            <div className="flex flex-col justify-start">
+              <div className="text-[2.35rem] md:text-[2.7rem] leading-none tracking-[-0.06em] font-semibold text-[#E1DEFF]">
+                08
+              </div>
+              <div className="mt-2.5 text-[0.8rem] md:text-[0.9rem] leading-[1.28] tracking-[-0.03em] text-[#A99BEA]">
+                Recognitions
+              </div>
             </div>
-            <div className="flex flex-col justify-center">
-              <span className="stat-number text-accent">20+</span>
-              <span className="text-muted-foreground text-xs">Projects Done</span>
+
+            <div className="flex flex-col justify-start">
+              <div className="text-[2.35rem] md:text-[2.7rem] leading-none tracking-[-0.06em] font-semibold text-[#E1DEFF]">
+                27<span className="text-[#FF7A45]">+</span>
+              </div>
+              <div className="mt-2.5 text-[0.8rem] md:text-[0.9rem] leading-[1.28] tracking-[-0.03em] text-[#A99BEA]">
+                Projects Done
+              </div>
             </div>
           </div>
         </div>
