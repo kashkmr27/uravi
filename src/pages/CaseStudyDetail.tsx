@@ -361,7 +361,7 @@ const caseStudiesData: Record<string, CaseStudy> = {
     service: "UX/UI Design",
     category: "B2B SaaS / Productivity",
     year: "2024",
-    link: "https://uravi.com",
+    link: "https://uravi.co.uk",
     roleDetails: {
       "Role": "UX / UI Designer",
       "Role Type": "Part-time / Freelance base",
@@ -1852,7 +1852,9 @@ const CaseStudyDetail = () => {
       <Helmet>
         <title>{study.title} | Case Study - Uravi Sharma</title>
         <meta name="description" content={study.subtitle || study.overview[0]} />
-        <link rel="canonical" href={`https://uravisharma.com/case-studies/${slug}`} />
+        <meta property="og:title" content={`${study.title} | Case Study - Uravi Sharma`} />
+        <meta property="og:url" content={`https://uravi.co.uk/case-studies/${slug}`} />
+        <link rel="canonical" href={`https://uravi.co.uk/case-studies/${slug}`} />
       </Helmet>
 
       <Header />

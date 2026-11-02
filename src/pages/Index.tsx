@@ -21,7 +21,8 @@ const Index = () => {
         <meta property="og:title" content="Uravi Sharma | UI/UX & Digital Designer" />
         <meta property="og:description" content="7+ years of experience crafting user-centered digital experiences. Let's create something amazing together." />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://uravisharma.com" />
+        <meta property="og:url" content="https://uravi.co.uk/" />
+        <link rel="canonical" href="https://uravi.co.uk" />
       </Helmet>
 
       <div className="min-h-screen bg-background">

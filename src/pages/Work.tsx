@@ -56,8 +56,9 @@ const Work = () => {
           name="description" 
           content="Explore my portfolio of UI/UX and digital design projects. Featured work includes website redesigns, branding, and user experience improvements." 
         />
-        <meta name="keywords" content="UI Design Portfolio, UX Design Projects, Web Design Work, Digital Design Case Studies" />
-        <link rel="canonical" href="https://uravisharma.com/work" />
+        <meta property="og:title" content="Work | Uravi Sharma - UI/UX & Digital Designer" />
+        <meta property="og:url" content="https://uravi.co.uk/work" />
+        <link rel="canonical" href="https://uravi.co.uk/work" />
       </Helmet>
 
       <div className="min-h-screen bg-background">

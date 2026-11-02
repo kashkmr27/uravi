@@ -86,8 +86,9 @@ const CaseStudies = () => {
           name="description" 
           content="Explore detailed case studies of my UI/UX design projects. Learn about my design process, challenges, and solutions." 
         />
-        <meta name="keywords" content="UX Case Studies, UI Design Process, Design Portfolio, User Research" />
-        <link rel="canonical" href="https://uravisharma.com/case-studies" />
+        <meta property="og:title" content="Case Studies | Uravi Sharma - UI/UX & Digital Designer" />
+        <meta property="og:url" content="https://uravi.co.uk/case-studies" />
+        <link rel="canonical" href="https://uravi.co.uk/case-studies" />
       </Helmet>
 
       <div className="min-h-screen bg-background">
