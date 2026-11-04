@@ -7,7 +7,7 @@ const PortfolioSection = () => {
   const projects = [
     {
       title: "GMB Website Redesign",
-      logo: "GMB",
+      image: "/projects/image-6.png",
       slug: "gmb-website-redesign",
       description: "Led the complete redesign of GMB's digital presence, creating a modern, accessible, and user-friendly website that serves millions of union members across the UK.",
       link: "https://www.gmb.org.uk/",
@@ -15,7 +15,7 @@ const PortfolioSection = () => {
     },
     {
       title: "Innov-8-2-Create",
-      logo: "Innov-8-2-Create",
+      image: "/projects/image-7.png",
       slug: "innov-8-2-create",
       description: "Supporting and sustaining an efficient innovation ecosystem in Europe. A comprehensive platform designed to foster collaboration and drive innovation across European networks.",
       link: "https://innov-8-2-create.eu/",
@@ -23,7 +23,7 @@ const PortfolioSection = () => {
     },
     {
       title: "Climate Jobs",
-      logo: "Climate Jobs",
+      image: "/projects/image-8.png",
       slug: "climate-jobs",
       description: "A platform dedicated to promoting green employment opportunities and climate action initiatives across the UK, connecting workers with sustainable career paths.",
       link: "https://climatejobs.org.uk/",
@@ -31,7 +31,7 @@ const PortfolioSection = () => {
     },
     {
       title: "Act for Change",
-      logo: "Act for Change",
+      image: "/projects/image-9.png",
       slug: "act-for-change",
       description: "An advocacy platform empowering communities to take action on social and environmental issues, featuring intuitive navigation and impactful storytelling.",
       link: "https://actforchange.org.uk/",
@@ -39,7 +39,7 @@ const PortfolioSection = () => {
     },
     {
       title: "ASTP4KT",
-      logo: "ASTP4KT",
+      image: "/projects/image-10.png",
       slug: "astp4kt",
       description: "European knowledge transfer platform connecting researchers, innovators, and industry professionals to accelerate technology transfer and commercialization.",
       link: "https://astp4kt.eu/",
@@ -96,12 +96,14 @@ const PortfolioSection = () => {
                 <div key={project.title} className="flex-[0_0_100%] min-w-0">
                   <div className="bg-gradient-to-br from-primary/80 via-accent to-primary rounded-2xl p-6 md:p-10 mx-2">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                      {/* Project Logo */}
+                      {/* Project Image */}
                       <div className="flex items-center justify-center">
-                        <div className="bg-background/95 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-2xl">
-                          <div className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight text-center">
-                            {project.logo}
-                          </div>
+                        <div className="rounded-2xl overflow-hidden shadow-2xl w-full">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover"
+                          />
                         </div>
                       </div>
 
@@ -139,7 +141,7 @@ const PortfolioSection = () => {
                             <ExternalLink size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                           </a>
                           <Link
-                            to={`/case-studies/${project.slug}`}
+                            to={`/casestudies/${project.slug}`}
                             className="inline-flex items-center gap-2 bg-foreground/10 hover:bg-foreground/20 text-foreground px-4 py-2 rounded-full transition-colors group"
                           >
                             <span>Case Study</span>
@@ -188,13 +190,13 @@ const PortfolioSection = () => {
 
         {/* View All Projects CTA */}
         <div className="text-center mt-12">
-          <a
-            href="#contact"
+          <Link
+            to="/work"
             className="inline-flex items-center gap-3 bg-secondary hover:bg-secondary/80 text-foreground px-8 py-4 rounded-full transition-all duration-300 hover:shadow-glow group font-medium"
           >
-            <span>Let's discuss your project</span>
+            <span>All Projects</span>
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

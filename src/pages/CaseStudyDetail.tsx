@@ -1530,7 +1530,7 @@ const CaseStudyDetail = () => {
   const { slug } = useParams<{ slug: string }>();
 
   if (!slug || !caseStudiesData[slug]) {
-    return <Navigate to="/case-studies" replace />;
+    return <Navigate to="/casestudies" replace />;
   }
 
   const study = caseStudiesData[slug];
@@ -1853,8 +1853,8 @@ const CaseStudyDetail = () => {
         <title>{study.title} | Case Study - Uravi Sharma</title>
         <meta name="description" content={study.subtitle || study.overview[0]} />
         <meta property="og:title" content={`${study.title} | Case Study - Uravi Sharma`} />
-        <meta property="og:url" content={`https://uravi.co.uk/case-studies/${slug}`} />
-        <link rel="canonical" href={`https://uravi.co.uk/case-studies/${slug}`} />
+        <meta property="og:url" content={`https://uravi.co.uk/casestudies/${slug}`} />
+        <link rel="canonical" href={`https://uravi.co.uk/casestudies/${slug}`} />
       </Helmet>
 
       <Header />

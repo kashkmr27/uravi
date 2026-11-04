@@ -7,7 +7,7 @@ import Footer from '@/components/Footer';
 const projects = [
   {
     title: "GMB Website Redesign",
-    logo: "GMB",
+    image: "/projects/image-6.png",
     description: "Led the complete redesign of GMB's digital presence, creating a modern, accessible, and user-friendly website that serves millions of union members across the UK.",
     link: "https://www.gmb.org.uk/",
     tags: ["UX Research", "UI Design", "Responsive", "Accessibility"],
@@ -15,7 +15,7 @@ const projects = [
   },
   {
     title: "Innov-8-2-Create",
-    logo: "Innov-8-2-Create",
+    image: "/projects/image-7.png",
     description: "Supporting and sustaining an efficient innovation ecosystem in Europe. A comprehensive platform designed to foster collaboration and drive innovation across European networks.",
     link: "https://innov-8-2-create.eu/",
     tags: ["UI/UX Design", "Web Design", "Innovation"],
@@ -23,7 +23,7 @@ const projects = [
   },
   {
     title: "Climate Jobs",
-    logo: "Climate Jobs",
+    image: "/projects/image-8.png",
     description: "A platform dedicated to promoting green employment opportunities and climate action initiatives across the UK, connecting workers with sustainable career paths.",
     link: "https://climatejobs.org.uk/",
     tags: ["Web Design", "UX Design", "Sustainability"],
@@ -31,7 +31,7 @@ const projects = [
   },
   {
     title: "Act for Change",
-    logo: "Act for Change",
+    image: "/projects/image-9.png",
     description: "An advocacy platform empowering communities to take action on social and environmental issues, featuring intuitive navigation and impactful storytelling.",
     link: "https://actforchange.org.uk/",
     tags: ["UI Design", "Branding", "Responsive"],
@@ -39,7 +39,7 @@ const projects = [
   },
   {
     title: "ASTP4KT",
-    logo: "ASTP4KT",
+    image: "/projects/image-10.png",
     description: "European knowledge transfer platform connecting researchers, innovators, and industry professionals to accelerate technology transfer and commercialization.",
     link: "https://astp4kt.eu/",
     tags: ["UX Research", "Web Design", "Innovation"],
@@ -68,10 +68,10 @@ const Work = () => {
           <section className="py-16 md:py-24">
             <div className="container mx-auto px-6">
               <div className="text-center mb-16">
-                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+                <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
                   My <span className="text-accent">Work</span>
                 </h1>
-                <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                <p className="text-muted-foreground text-base max-w-2xl mx-auto">
                   A collection of projects showcasing problem-solving, creativity, and attention to detail in UI/UX design.
                 </p>
               </div>
@@ -84,14 +84,14 @@ const Work = () => {
                     className="bg-card border border-border rounded-2xl overflow-hidden hover:border-accent/50 transition-all duration-300 group"
                   >
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 p-6 md:p-10">
-                      {/* Project Logo */}
+                      {/* Project Image */}
                       <div className={`flex items-center justify-center ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                        <div className="bg-gradient-to-br from-primary/80 via-accent to-primary rounded-2xl p-12 md:p-16 w-full max-w-md">
-                          <div className="bg-background/95 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-xl">
-                            <div className="text-2xl md:text-3xl font-display font-bold text-foreground tracking-tight text-center">
-                              {project.logo}
-                            </div>
-                          </div>
+                        <div className="rounded-2xl overflow-hidden w-full max-w-md shadow-xl">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover"
+                          />
                         </div>
                       </div>
 
@@ -129,7 +129,7 @@ const Work = () => {
                             <ExternalLink size={18} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
                           </a>
                           <Link
-                            to={`/case-studies/${project.caseStudySlug}`}
+                            to={`/casestudies/${project.caseStudySlug}`}
                             className="inline-flex items-center gap-2 bg-secondary hover:bg-secondary/80 text-foreground px-6 py-3 rounded-full transition-colors font-medium group/link"
                           >
                             <span>Case Study</span>

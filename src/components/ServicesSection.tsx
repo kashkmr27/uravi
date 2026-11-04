@@ -1,74 +1,73 @@
-import { Layers, Search, Figma, Globe, ArrowRight } from 'lucide-react';
+import { Monitor, Smartphone, Search, Palette, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const ServicesSection = () => {
   const services = [
     {
-      icon: Layers,
-      title: "UI Design",
-      description: "Creating visually stunning interfaces that captivate users while maintaining usability and accessibility standards.",
-      color: "accent",
-    },
-    {
-      icon: Search,
-      title: "UX Research",
-      description: "Deep-diving into user behavior through interviews, testing, and analytics to inform design decisions that drive results.",
+      icon: Monitor,
+      title: "Landing Pages & Websites",
+      description: "Build high-converting pages that turn visitors into customers perfect for ecommerce, services, and SaaS launches",
       color: "primary",
     },
     {
-      icon: Figma,
-      title: "Branding",
-      description: "Leveraging Figma's full potential with auto-layout, components, variants, and design systems for scalable designs.",
-      color: "accent",
+      icon: Smartphone,
+      title: "Mobile Apps & Web Apps",
+      description: "Craft seamless user journeys for iOS/Android apps and responsive web applications. From onboarding to retention, intuitive flows",
+      color: "primary",
     },
     {
-      icon: Globe,
-      title: "Product & Web Design",
-      description: "End-to-end design for digital products including responsive websites, web apps, and mobile experiences.",
+      icon: Search,
+      title: "UX Research & Strategy",
+      description: "Conduct user research and strategy to uncover insights that drive better designs. Competitor analysis, user interviews, user journey maps",
+      color: "primary",
+    },
+    {
+      icon: Palette,
+      title: "Branding & Visuals",
+      description: "Create logos, social media posts, and brand assets that strengthen your market presence. Perfect for ecommerce stores and service",
       color: "primary",
     },
   ];
 
   return (
-    <section id="services" className="py-20 md:py-32 bg-card/30">
+    <section id="services" className="py-6 md:py-8">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Services I <span className="text-accent">Offer</span>
+            My <span className="text-accent">Services</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive design services tailored to bring your vision to life and create meaningful digital experiences.
+            The service I offer is specifically designed to meet your needs.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {services.map((service, index) => (
-            <div 
+            <div
               key={service.title}
-              className="bento-card glow-effect p-8 group opacity-0 animate-fade-in"
+              className="bento-card glow-effect p-8 group opacity-0 animate-fade-in flex gap-5 items-start"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${
-                service.color === 'accent' ? 'bg-accent/20' : 'bg-primary/20'
-              } group-hover:scale-110 transition-transform duration-300`}>
-                <service.icon size={28} className={service.color === 'accent' ? 'text-accent' : 'text-primary'} />
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 bg-secondary group-hover:scale-110 transition-transform duration-300">
+                <service.icon size={28} className="text-foreground" />
               </div>
-              
-              <h3 className="font-display text-xl font-bold text-foreground mb-3">{service.title}</h3>
-              <p className="text-muted-foreground leading-relaxed mb-6">{service.description}</p>
-              
-              <a 
-                href="#contact" 
-                className={`inline-flex items-center gap-2 transition-colors group/link ${
-                  service.color === 'accent' 
-                    ? 'text-accent hover:text-accent-glow' 
-                    : 'text-primary hover:text-primary-glow'
-                }`}
-              >
-                <span className="text-sm font-medium">Learn more</span>
-                <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
-              </a>
+
+              <div>
+                <h3 className="font-display text-lg font-bold text-foreground mb-2">{service.title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">{service.description}</p>
+              </div>
             </div>
           ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <Link
+            to="/work"
+            className="inline-flex items-center gap-3 bg-secondary hover:bg-secondary/80 text-foreground px-8 py-4 rounded-full transition-all duration-300 hover:shadow-glow group font-medium"
+          >
+            <span>Check Portfolio</span>
+            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </div>
     </section>

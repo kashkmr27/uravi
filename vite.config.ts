@@ -16,6 +16,18 @@ function generateSpaRoutes(): Plugin {
 
       const routes = [
         "work",
+        "casestudies",
+        "casestudies/gmb-app",
+        "casestudies/connect-local-app",
+        "casestudies/uravi",
+        "casestudies/gmb-website-redesign",
+        "casestudies/innov-8-2-create",
+        "casestudies/alpine",
+        "casestudies/tiny-vision",
+        "casestudies/climate-jobs",
+        "casestudies/act-for-change",
+        "casestudies/astp4kt",
+        // Legacy routes so old bookmarks/links load and redirect cleanly
         "case-studies",
         "case-studies/gmb-app",
         "case-studies/connect-local-app",
@@ -24,7 +36,6 @@ function generateSpaRoutes(): Plugin {
         "case-studies/innov-8-2-create",
         "case-studies/alpine",
         "case-studies/tiny-vision",
-        "climate-jobs",
         "case-studies/climate-jobs",
         "case-studies/act-for-change",
         "case-studies/astp4kt",

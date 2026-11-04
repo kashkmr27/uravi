@@ -84,7 +84,7 @@ const HeroSection = () => {
         <div className="md:col-span-3 bento-card flex flex-col items-center justify-center min-h-[140px] opacity-0 animate-fade-in" style={{
           animationDelay: '0.3s'
         }}>
-          <button type="button" onClick={handleDownloadCV} className="inline-flex items-center gap-3 bg-secondary hover:bg-secondary/80 text-foreground px-6 py-3 rounded-full transition-all duration-300 hover:shadow-glow group">
+          <button type="button" onClick={handleDownloadCV} className="inline-flex items-center gap-3 bg-accent hover:bg-accent/90 text-white px-6 py-3 rounded-full transition-all duration-300 hover:shadow-glow group">
             <Download size={18} />
             <span className="font-medium">Download CV</span>
           </button>
@@ -130,7 +130,7 @@ const HeroSection = () => {
           </div>
           <h4 className="font-display text-lg font-semibold text-foreground mb-1">Case Studies</h4>
           <p className="text-muted-foreground text-sm mb-4">Fresh creations from our creative journey.</p>
-          <Link to="/case-studies" className="inline-flex items-center gap-2 text-accent hover:text-accent-glow transition-colors group">
+          <Link to="/casestudies" className="inline-flex items-center gap-2 text-accent hover:text-accent-glow transition-colors group">
             <span className="text-sm font-medium">All Projects</span>
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </Link>
@@ -166,20 +166,16 @@ const HeroSection = () => {
                 7<span className="text-[#FF7A45]">+</span>
               </div>
               <div className="mt-2.5 text-[0.8rem] md:text-[0.9rem] leading-[1.28] tracking-[-0.03em] text-[#A99BEA]">
-                Years of work
-                <br />
-                experience
+                Years of Experience
               </div>
             </div>
 
             <div className="flex flex-col justify-start">
               <div className="text-[2.35rem] md:text-[2.7rem] leading-none tracking-[-0.06em] font-semibold text-[#E1DEFF]">
-                98<span className="text-[#FF7A45]">%</span>
+                00
               </div>
               <div className="mt-2.5 text-[0.8rem] md:text-[0.9rem] leading-[1.28] tracking-[-0.03em] text-[#A99BEA]">
-                Satisfied happy
-                <br />
-                customers
+                Unhappy Clients
               </div>
             </div>
 
@@ -194,7 +190,7 @@ const HeroSection = () => {
 
             <div className="flex flex-col justify-start">
               <div className="text-[2.35rem] md:text-[2.7rem] leading-none tracking-[-0.06em] font-semibold text-[#E1DEFF]">
-                27<span className="text-[#FF7A45]">+</span>
+                20<span className="text-[#FF7A45]">+</span>
               </div>
               <div className="mt-2.5 text-[0.8rem] md:text-[0.9rem] leading-[1.28] tracking-[-0.03em] text-[#A99BEA]">
                 Projects Done

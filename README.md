@@ -18,9 +18,9 @@ Official portfolio website for **Uravi Sharma** (UI/UX & Digital Designer).
 
 ## Direct Page Access & SPA Routing
 
-The site is configured to allow direct URL navigation and bookmarking to any page (such as `/work`, `/case-studies`, and individual case study routes) across hosting environments:
+The site is configured to allow direct URL navigation and bookmarking to any page (such as `/work`, `/casestudies`, and individual case study routes) across hosting environments:
 
-- **Static Route Generation**: Vite generates `index.html` in each route folder (e.g., `dist/work/index.html`, `dist/case-studies/index.html`) during build, ensuring 200 OK responses on static hosts.
+- **Static Route Generation**: Vite generates `index.html` in each route folder (e.g., `dist/work/index.html`, `dist/casestudies/index.html`) during build, ensuring 200 OK responses on static hosts.
 - **GitHub Pages SPA Fallback**: `public/404.html` and `index.html` redirect handler support dynamic SPA fallback.
 - **Custom Domain**: `public/CNAME` configured for `uravi.co.uk`.
 - **Netlify / Cloudflare**: `public/_redirects` configured.

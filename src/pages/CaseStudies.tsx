@@ -7,13 +7,13 @@ import Footer from '@/components/Footer';
 const caseStudies = [
   {
     slug: "gmb-website-redesign",
-    title: "GMB Union",
+    title: "GMB Website Redesign",
     subtitle: "Transforming the UK's leading trade union digital presence",
     service: "UI/UX Design",
     category: "Web Redesign",
     year: "2024",
     link: "https://www.gmb.org.uk/",
-    image: "/case-study/gmb.png",
+    image: "/projects/image-6.png",
   },
   {
     slug: "innov-8-2-create",
@@ -23,37 +23,7 @@ const caseStudies = [
     category: "Platform Design",
     year: "2023",
     link: "https://innov-8-2-create.eu/",
-    image: "/case-study/innvote-2-create.png",
-  },
-  {
-    slug: "alpine",
-    title: "Alpine",
-    subtitle: "Driving digital transformation for construction",
-    service: "UX/UI Design",
-    category: "Platform Redesign",
-    year: "2024",
-    link: "#",
-    image: "/case-study/Alpine.png",
-  },
-  {
-    slug: "tiny-vision",
-    title: "Tiny-Vision",
-    subtitle: "Support in building responsive & optimized landing pages",
-    service: "Web Designer",
-    category: "Website Redesign",
-    year: "2024",
-    link: "#",
-    image: "/case-study/Tiny-Vision.png",
-  },
-  {
-    slug: "act-for-change",
-    title: "Act for Change",
-    subtitle: "Empowering communities through advocacy",
-    service: "UI Design",
-    category: "Branding",
-    year: "2022",
-    link: "https://actforchange.org.uk/",
-    image: "/case-study/act-for-change.png",
+    image: "/projects/image-7.png",
   },
   {
     slug: "climate-jobs",
@@ -63,17 +33,27 @@ const caseStudies = [
     category: "Platform",
     year: "2023",
     link: "https://climatejobs.org.uk/",
-    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=600&fit=crop",
+    image: "/projects/image-8.png",
+  },
+  {
+    slug: "act-for-change",
+    title: "Act for Change",
+    subtitle: "Empowering communities through advocacy",
+    service: "UI Design",
+    category: "Branding",
+    year: "2022",
+    link: "https://actforchange.org.uk/",
+    image: "/projects/image-9.png",
   },
   {
     slug: "astp4kt",
-    title: "ASTP",
+    title: "ASTP4KT",
     subtitle: "Connecting Europe's knowledge transfer professionals",
-    service: "UX/UI Design",
-    category: "Web Design & UX Optimization",
-    year: "2024",
+    service: "UX Research",
+    category: "Platform",
+    year: "2022",
     link: "https://astp4kt.eu/",
-    image: "/case-study/ASTP.png",
+    image: "/projects/image-10.png",
   },
 ];
 
@@ -87,8 +67,8 @@ const CaseStudies = () => {
           content="Explore detailed case studies of my UI/UX design projects. Learn about my design process, challenges, and solutions." 
         />
         <meta property="og:title" content="Case Studies | Uravi Sharma - UI/UX & Digital Designer" />
-        <meta property="og:url" content="https://uravi.co.uk/case-studies" />
-        <link rel="canonical" href="https://uravi.co.uk/case-studies" />
+        <meta property="og:url" content="https://uravi.co.uk/casestudies" />
+        <link rel="canonical" href="https://uravi.co.uk/casestudies" />
       </Helmet>
 
       <div className="min-h-screen bg-background">
@@ -98,10 +78,10 @@ const CaseStudies = () => {
           <section className="py-16 md:py-24 bg-secondary/30">
             <div className="container mx-auto px-6">
               <div className="text-center">
-                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+                <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
                   Case <span className="text-accent">Studies</span>
                 </h1>
-                <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                <p className="text-muted-foreground text-base max-w-2xl mx-auto">
                   Deep dives into my design process, from research and ideation to final implementation.
                 </p>
               </div>
@@ -115,7 +95,7 @@ const CaseStudies = () => {
                 {caseStudies.map((study) => (
                   <Link
                     key={study.slug}
-                    to={`/case-studies/${study.slug}`}
+                    to={`/casestudies/${study.slug}`}
                     className="group block"
                   >
                     <article className="bg-card border border-border rounded-2xl overflow-hidden hover:border-accent/50 transition-all duration-300">
