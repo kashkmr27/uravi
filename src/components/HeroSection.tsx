@@ -16,26 +16,23 @@ const HeroSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 auto-rows-auto">
 
         {/* About Card - Left */}
-        <div className="md:col-span-3 bento-card flex flex-col justify-between min-h-[320px] md:min-h-[360px] bg-[#1E1E2A] border-white/5 px-6 py-7 md:px-6 md:py-7 opacity-0 animate-fade-in" style={{
+        <div className="md:col-span-3 bento-card flex flex-col justify-between min-h-[320px] md:min-h-[360px] bg-[#1E1E2A] border-white/5 px-6 py-7 md:px-7 md:py-8 opacity-0 animate-fade-in" style={{
           animationDelay: '0.1s'
         }}>
           <div>
-            <div className="w-14 h-14 flex items-center justify-center mb-9">
-              <img src="/logo.png" alt="Logo" className="w-14 h-14" />
-            </div>
-            <div className="space-y-8">
-              <div className="text-[1rem] leading-[1.24] tracking-[-0.03em] text-[#D9D5F6] font-normal">
-                &quot;I&apos;m Uravi, a digital designer blending creativity and usability to craft designs people love  just ask my <span className="text-[#FF7A45] font-semibold">mom</span> and <span className="text-[#FF7A45] font-semibold">son</span>!&quot;
+            <div className="space-y-6">
+              <div className="text-[1.05rem] leading-[1.3] tracking-[-0.02em] text-[#D9D5F6] font-normal">
+                &quot;I&apos;m Uravi, a digital designer blending creativity and usability to craft designs people love &mdash; just ask my <span className="text-[#FF7A45] font-semibold">son</span>!&quot;
               </div>
 
-              <p className="text-[1rem] leading-[1.24] tracking-[-0.03em] text-[#D9D5F6]">
+              <p className="text-[0.98rem] leading-[1.35] tracking-[-0.02em] text-[#D9D5F6]">
                 I create conversion-focused e-commerce store, website design, landing pages, dashboards, web apps, mobile apps, logos, and social posts for ecommerce and service businesses.
               </p>
             </div>
           </div>
           <a href="#about" className="inline-flex items-center gap-3 text-[#D9D5F6] hover:text-white transition-colors mt-8 group">
             <span className="text-[1.35rem] md:text-[1.5rem] font-semibold tracking-[-0.03em]">About me</span>
-            <ArrowRight size={30} strokeWidth={2.4} className="text-[#FF7A45] group-hover:translate-x-1 transition-transform" />
+            <ArrowRight size={26} strokeWidth={2.4} className="text-[#FF7A45] group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
 
@@ -48,9 +45,9 @@ const HeroSection = () => {
 
           <div className="relative z-10">
             <h1 className="text-4xl md:text-5xl lg:text-6xl text-foreground mb-8 leading-tight font-semibold font-sans">
-              Web<br />
-              UI / UX & Digital<br />
-              Designer
+              UI/UX<br />
+              &<br />
+              Digital Designer
             </h1>
           </div>
 
@@ -131,7 +128,7 @@ const HeroSection = () => {
           <h4 className="font-display text-lg font-semibold text-foreground mb-1">Case Studies</h4>
           <p className="text-muted-foreground text-sm mb-4">Fresh creations from our creative journey.</p>
           <Link to="/casestudies" className="inline-flex items-center gap-2 text-accent hover:text-accent-glow transition-colors group">
-            <span className="text-sm font-medium">All Projects</span>
+            <span className="text-sm font-medium">All Case Studies</span>
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
